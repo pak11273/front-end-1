@@ -5,6 +5,7 @@ export default function SignUpForm(props) {
         values,
         submit,
         change,
+        disabled,
     } = props
 
     const onSubmit = evt => {
@@ -13,8 +14,8 @@ export default function SignUpForm(props) {
     }
 
     const onChange = evt => {
-        const { name } = evt.target
-        change(name)
+        const { name, value } = evt.target
+        change(name, value)
       }
     return(
     <form className='form container' onSubmit={onSubmit}>
@@ -51,7 +52,7 @@ export default function SignUpForm(props) {
             <input
             value={values.email}
             onChange={onChange}
-            name='firstname'
+            name='email'
             type='text'
             />
         </label>
@@ -60,17 +61,13 @@ export default function SignUpForm(props) {
             <input
             value={values.password}
             onChange={onChange}
-            name='firstname'
-            type='text'
+            name='password'
+            type='password'
             />
         </label>
-
-        
-
-        
-
-        
-
+        <div>
+        <button disabled={disabled}>Log In</button>
+        </div>
         </div>
     </form>
     )

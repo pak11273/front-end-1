@@ -10,14 +10,14 @@ const formSchema = yup.object().shape({
     .required('First Name is required'),
     lastname: yup.string()
     .required('Last name is required'),
-    email: yup.string()
+    email: yup.string().email()
     .required('Valid email is required'),
 
-    title: yup.string(),
-    category: yup.string(),
-    source: yup.string(),
-    ingredients: yup.string(),
-    instructions: yup.string(),
+    // title: yup.string(),
+    // category: yup.string(),
+    // source: yup.string(),
+    // ingredients: yup.string(),
+    // instructions: yup.string(),
 })
 
 export default formSchema

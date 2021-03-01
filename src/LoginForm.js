@@ -14,8 +14,8 @@ export default function LoginForm(props) {
     }
 
     const onChange = evt => {
-        const { name } = evt.target
-        change(name)
+        const { name, value } = evt.target
+        change(name, value)
       }
 
     
@@ -36,7 +36,7 @@ export default function LoginForm(props) {
             value={values.password}
             onChange={onChange}
             name='password'
-            type='text'
+            type='password'
             />
         </label>
         </div>

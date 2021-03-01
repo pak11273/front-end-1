@@ -1,6 +1,6 @@
 import SignUpForm from './SignUpForm'
 import React, {useState, useEffect} from "react";
-import formSchema from './loginSchema'
+import signupSchema from './signupSchema'
 import * as yup from 'yup'
 import {Link} from "react-router-dom";
 import axios from 'axios'
@@ -30,10 +30,13 @@ const initialFormValues = {
     instructions: '',
   }
 
+  const initialDisabled = true
+
 export default function SignUp() {
 
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
+    const [disabled, setDisabled] = useState(initialDisabled)
 
     const formSubmit = () => {
         const signupSubmit = {
@@ -54,7 +57,7 @@ export default function SignUp() {
       }
     
     const inputChange = (name, value) => {
-        yup.reach(formSchema, name)
+        yup.reach(signupSchema, name)
           .validate(value)
           .then(() => {
             setFormErrors({...formErrors, [name]: ''})
@@ -69,7 +72,8 @@ export default function SignUp() {
     }
 
     useEffect(() => {
-        formSchema.isValid(formValues)
+      signupSchema.isValid(formValues).then(valid => 
+        setDisabled(!valid))
       }, [formValues])
 
 
@@ -82,6 +86,7 @@ return(
         values={formValues}
         change={inputChange}
         submit={formSubmit}
+        disabled={disabled}
         errors={formErrors}
         />
 
