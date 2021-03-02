@@ -8,8 +8,10 @@ import {
 } from "../consts/index";
 
 const initialState = {
-  username: "",
-  user_id: "",
+  user: {
+    user_id: '',
+    username: ''
+  },
   error: "",
   isLoading: "",
 };
@@ -23,11 +25,9 @@ export const userReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case REGISTER_USER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
-        username: action.payload.username,
-        user_id: action.payload.user_id,
+        user: action.payload,
         isLoading: false,
       };
     case REGISTER_USER_FAIL:
