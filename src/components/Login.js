@@ -59,7 +59,7 @@ export default function Login() {
             //firstname: formValues.firstname.trim(),
             //lastname: formValues.lastname.trim(),
             //email: http://formValues.email.trim(),
-            password: formValues.firstname.trim(),
+            password: formValues.password.trim(),
             // title: formValues.title.trim(),
             // category: formValues.category.trim(),
             // source: formValues.source.trim(),
