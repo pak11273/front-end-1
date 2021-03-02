@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-function SignUp() {
-  return (
-    <div>
-      <h2>poop</h2>
-    </div>
-  )
-}
-
-export default SignUp
-=======
 import SignUpForm from './SignUpForm'
 import React, {useState, useEffect} from "react";
 import signupSchema from './signupSchema'
@@ -108,4 +95,3 @@ return(
     </div>
     )
 }
->>>>>>> 2f9ee291b49e17d41e6db82720881499547d6ff8
