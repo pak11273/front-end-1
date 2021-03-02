@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import * as yup from 'yup'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import DashboardSearchForm from './DashboardSearch'
 import { axiosWithAuth } from "../auth/axiosWithAuth";
 import { connect } from "react-redux";
@@ -38,11 +38,7 @@ const s = [
 ]
 
 function Dashboard({ user }) {
-
-
-  
-
-
+  const history = useHistory()
   const [recipes, setRecipes] = useState(s)
   const [formValues, setFormValues] = useState(initialFormValues)
   
@@ -112,6 +108,8 @@ function Dashboard({ user }) {
         submit={formSubmit}
       
       />
+
+      <button onClick={() => history.push('/new')}>Add New</button>
 
 
       </div>
