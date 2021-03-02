@@ -25,6 +25,7 @@ export const userReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case REGISTER_USER_SUCCESS:
+      console.log(state.user, action.payload , 'userReducer')
       return {
         ...state,
         user: action.payload,

@@ -14,7 +14,6 @@ export const registerUser = (user) => (dispatch) => {
   axios
     .post("https://family-recipes-cookbook.herokuapp.com/user/register", user )
     .then((res) => {
-      
       dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     })
     .catch((err) => dispatch({ type: REGISTER_USER_FAIL, payload: err }));
