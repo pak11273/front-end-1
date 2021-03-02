@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import LoginForm from "./components/LoginForm";
 import SignUp from "./components/SignUp";
 import Header from './components/Header'
+import Dashboard from './components/Dashboard'
 
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" render={() => (token ? <Home /> : <Login />)} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/dashboard" component={Dashboard} />
       {/* <Route path="/edit" component={EditRecipe} />
       <Route path="/display" component={DisplayPage} /> */}
     </div>

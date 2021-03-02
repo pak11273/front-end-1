@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import signupSchema from './signupSchema'
 import * as yup from 'yup'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
     username: '',
@@ -34,6 +35,7 @@ const initialFormErrors = {
 const initialDisabled = true
 
 export default function SignUp() {
+  const history = useHistory()
 
     const [formValues, setFormValues] = useState(initialFormValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors)
@@ -56,6 +58,7 @@ export default function SignUp() {
         axios.post('https://family-recipes-cookbook.herokuapp.com/user/register', signupSubmit)
         .then(res => {
           console.log(res)
+          history.push('/dashboard')
         })
         .catch(err => console.log({err}))
       }
