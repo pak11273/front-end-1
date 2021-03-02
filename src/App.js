@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import React from "react";
 import { Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
+import Dashboard from "./components/Dashboard"
 
 const token = localStorage.getItem("token");
 
@@ -21,6 +22,8 @@ function App() {
       <Route path="/signup" component={SignUp} />
       <Route path="/edit" component={EditRecipe} />
       <Route path="/display" component={DisplayPage} />
+      <Route path="/dashboard" component={Dashboard} />
+
     </div>
   );
 }
