@@ -40,7 +40,7 @@ const s = [
 function Dashboard({ user }) {
 
 
-  console.log(user)
+  
 
 
   const [recipes, setRecipes] = useState(s)
@@ -76,7 +76,9 @@ function Dashboard({ user }) {
       .catch(err => {
         console.log({err})
       })
-  },[])
+  },[user])
+
+  console.log(user.user_id)
 
   return (
     <div className='dashboard-container'>

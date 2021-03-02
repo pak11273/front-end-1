@@ -23,7 +23,7 @@ function App() {
       <Header />
 
       <Route exact path="/" component={Home} />
-      <Route path="/login" render={() => (token ? <Home /> : <Login />)} />
+      <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/edit" component={EditRecipe} />
       <Route path="/display" component={DisplayPage} />

@@ -45,10 +45,10 @@ export const userReducer = (state = initialState, action) => {
       };
     case LOGIN_USER_SUCCESS:
       localStorage.setItem("token", action.payload.token);
+      console.log(action.payload)
       return {
         ...state,
-        username: action.payload.username,
-        user_id: action.payload.user_id,
+        user: action.payload.user,
         isLoading: false,
       };
     case LOGIN_USER_FAIL:
