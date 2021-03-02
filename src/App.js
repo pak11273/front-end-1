@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import LoginForm from "./components/LoginForm";
 import SignUp from "./components/SignUp";
+import Header from './components/Header'
+
+import './App.css'
 
 const token = localStorage.getItem("token");
 
@@ -14,6 +17,9 @@ function App() {
 
   return (
     <div className="App">
+
+      <Header />
+
       <Route exact path="/" component={Home} />
       <Route path="/login" render={() => (token ? <Home /> : <Login />)} />
       <Route path="/signup" component={SignUp} />
