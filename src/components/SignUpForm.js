@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function SignUpForm(props) {
-  const { values, submit, change, disabled } = props;
-
+export default function SignUpForm({
+  values,
+  change,
+  submit,
+  disabled,
+  errors,
+}) {
   const onSubmit = (evt) => {
     evt.preventDefault();
     submit();
@@ -24,6 +28,7 @@ export default function SignUpForm(props) {
             type="text"
           />
         </label>
+        <p>{errors.username}</p>
 
         <label>
           First Name
@@ -34,6 +39,7 @@ export default function SignUpForm(props) {
             type="text"
           />
         </label>
+        <p>{errors.firstname}</p>
 
         <label>
           Last Name
@@ -44,6 +50,7 @@ export default function SignUpForm(props) {
             type="text"
           />
         </label>
+        <p>{errors.lastname}</p>
 
         <label>
           Email
@@ -54,6 +61,7 @@ export default function SignUpForm(props) {
             type="text"
           />
         </label>
+        <p>{errors.email}</p>
 
         <label>
           Password
@@ -64,8 +72,9 @@ export default function SignUpForm(props) {
             type="password"
           />
         </label>
+        <p>{errors.password}</p>
         <div>
-          <button disabled={disabled}>Log In</button>
+          <button>Log In</button>
         </div>
       </div>
     </form>
