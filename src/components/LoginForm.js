@@ -1,73 +1,47 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import { connect } from 'react-redux'
-import { setUser } from '../actions'
 
+import React from "react";
 
-const initialState = {
-  username: '',
-  password: ''
-}
+export default function LoginForm(props) {
+    const {
+        values,
+        submit,
+        change,
+        disabled,
+    } = props
 
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
 
-function LoginForm(props) {
+    const onChange = evt => {
+        const { name, value } = evt.target
+        change(name, value)
+      }
 
-  const [state, setState] = useState(initialState)
-
-  
-
-  const onChange = (e) => {
-    const {name, value} = e.target
-    setState({
-      ...state,
-      [name]: value
-    })
-  }
-
-  const onSubmit = (e) => {
-    e.preventDefault()
-
-    console.log(state)
-
-    axios.post('https://family-recipes-cookbook.herokuapp.com/user/login', state)
-      .then((res) => {
-
-        localStorage.setItem('token', res.data.token)
-        
-        props.setUser(res.data.user)
-      })
-      .catch(err => console.log(err))
-  }
-
-
-
-
-  return (
-    <div>
-      <h2>Login Form</h2>
-
-      {/* testing */}
-      <form onSubmit={onSubmit}>
-        <label>
-          username: 
-          <input type="text" name="username" onChange={onChange} />
+    
+    return(
+    <form className='loginformcontainer' onSubmit={onSubmit}>
+      <div>
+        <label>Username
+            <input
+            value={values.username}
+            onChange={onChange}
+            name='username'
+            type='text'
+            />
         </label>
 
-        <label>
-          password:
-          <input type="password" name="password" onChange={onChange} />
+        <label>Password
+            <input
+            value={values.password}
+            onChange={onChange}
+            name='password'
+            type='password'
+            />
         </label>
-
-        <button>Submit</button>
-      </form>
-
-
-
-
-    </div>
-  )
+        </div>
+        <button disabled={disabled}>Log In</button>
+    </form>
+    )
 }
-
-
-
-export default connect(null, { setUser})(LoginForm)
