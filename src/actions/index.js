@@ -37,7 +37,7 @@ export const registerUser = () => (dispatch) => {
 // login feature
 // Returns: { "user": { "user_id: 1, "username": "UniqueUsername" }, "token": "Authentication Token" }
 
-export const setUser = (payload) => (dispatch) => {
+export const loginUser = (payload) => (dispatch) => {
   dispatch({ type: LOGIN_USER_START });
   axios
     .post("https://family-recipes-cookbook.herokuapp.com/user/login", payload)
@@ -54,16 +54,4 @@ export const setUser = (payload) => (dispatch) => {
     .catch((err) =>
       dispatch({ type: LOGIN_USER_FAIL, payload: err.response.data.message })
     );
-};
-
-export const loginUser = () => (dispatch) => {
-  dispatch({ type: LOGIN_USER_START });
-  axios
-    .post("https://family-recipes-cookbook.herokuapp.com/user/register", {
-      dummyUser,
-    })
-    .then((res) => {
-      dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data.user });
-    })
-    .catch((err) => dispatch({ type: LOGIN_USER_FAIL, payload: err }));
 };

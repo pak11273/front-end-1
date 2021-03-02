@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
-import { setUser } from "../actions";
+import { loginUser } from "../actions";
 
 const initialFormValues = {
   username: "",
@@ -40,12 +40,12 @@ const Login = (props) => {
     });
   };
 
-  const formSubmit = () => {
+  const formSubmit = async () => {
     const loginSubmit = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
     };
-    props.setUser(loginSubmit);
+    props.loginUser(loginSubmit);
   };
 
   useEffect(() => {
@@ -78,4 +78,4 @@ const mapStateToProps = ({ userReducer }) => {
   };
 };
 
-export default connect(mapStateToProps, { setUser })(Login);
+export default connect(mapStateToProps, { loginUser })(Login);
