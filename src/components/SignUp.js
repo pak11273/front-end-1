@@ -2,11 +2,13 @@ import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm";
 import { connect } from "react-redux";
-import { registerUser } from "../actions";
+import { registerUser } from "../actions/index";
 import signupSchema from "./signupSchema";
+
+// import axios from 'axios'
+// import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
   username: "",
@@ -14,6 +16,12 @@ const initialFormValues = {
   lastname: "",
   email: "",
   password: "",
+  // +++ We dont need these i dont think when creating an account? + you dont have values for those
+  // title: '',
+  // category: '',
+  // source: '',
+  // ingredients: '',
+  // instructions: '',
 };
 const initialFormErrors = {
   username: "",
@@ -21,11 +29,17 @@ const initialFormErrors = {
   lastname: "",
   email: "",
   password: "",
+  // +++ Same there
+  // title: '',
+  // category: '',
+  // source: '',
+  // ingredients: '',
+  // instructions: '',
 };
-
 const initialDisabled = true;
 
-const SignUp = (props) => {
+function SignUp(props) {
+  // const history = useHistory()
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -37,12 +51,18 @@ const SignUp = (props) => {
       lastname: formValues.lastname.trim(),
       email: formValues.email.trim(),
       password: formValues.firstname.trim(),
+      // title: formValues.title.trim(),
+      // category: formValues.category.trim(),
+      // source: formValues.source.trim(),
+      // ingredients: formValues.ingredients.trim(),
+      // instructions: formValues.instructions.trim(),
     };
-
+    // Post request towards the server
     props.registerUser(signupSubmit);
   };
 
   const inputChange = (name, value) => {
+    // Validating forum first then pluggin in the values
     yup
       .reach(signupSchema, name)
       .validate(value)
@@ -52,6 +72,9 @@ const SignUp = (props) => {
       .catch((err) => {
         setFormErrors({ ...formErrors, [name]: err.errors[0] });
       });
+
+    console.log(name, value, "test");
+    // Plugging in values into FORMVALUES
     setFormValues({
       ...formValues,
       [name]: value,
@@ -64,7 +87,7 @@ const SignUp = (props) => {
 
   return (
     <div className="signup">
-      <h1>.</h1>
+      <h1>.//</h1>
 
       <SignUpForm
         values={formValues}
@@ -73,22 +96,8 @@ const SignUp = (props) => {
         disabled={disabled}
         errors={formErrors}
       />
-      {props.error && props.error ? (
-        <div style={{ color: "red" }}>{props.error}</div>
-      ) : null}
-
-      <div>
-        <Link to="/">no sign up pls</Link>
-      </div>
     </div>
   );
-};
+}
 
-const mapStateToProps = ({ userReducer }) => {
-  return {
-    error: userReducer.error,
-    isRegistered: userReducer.isRegistered,
-  };
-};
-
-export default connect(mapStateToProps, { registerUser })(SignUp);
+export default connect(null, { registerUser })(SignUp);

@@ -10,8 +10,10 @@ import {
 const token = localStorage.getItem("token");
 
 const initialState = {
-  username: "",
-  user_id: "",
+  user: {
+    user_id: '',
+    username: ''
+  },
   error: "",
   isLoading: "",
   isRegistered: false,
@@ -29,8 +31,7 @@ export const userReducer = (state = initialState, action) => {
     case REGISTER_USER_SUCCESS:
       return {
         ...state,
-        username: action.payload.username,
-        user_id: action.payload.user_id,
+        user: action.payload,
         isLoading: false,
         isRegistered: true,
       };
