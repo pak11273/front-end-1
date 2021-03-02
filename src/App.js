@@ -24,9 +24,10 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" render={() => (token ? <Home /> : <Login />)} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/edit" component={EditRecipe} />
+      <Route path="/display" component={DisplayPage} />
       <Route path="/dashboard" component={Dashboard} />
-      {/* <Route path="/edit" component={EditRecipe} />
-      <Route path="/display" component={DisplayPage} /> */}
+
     </div>
   );
 }
