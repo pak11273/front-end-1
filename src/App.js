@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import React from "react";
 import { Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
+import { NavBar } from "./components/NavBar";
 
 const token = localStorage.getItem("token");
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
       <Route exact path="/" component={Home} />
       <Route path="/login" render={() => (token ? <Home /> : <Login />)} />
       <Route path="/signup" component={SignUp} />
