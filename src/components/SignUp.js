@@ -2,7 +2,6 @@ import SignUpForm from './SignUpForm'
 import React, {useState, useEffect} from "react";
 import signupSchema from './signupSchema'
 import * as yup from 'yup'
-import {Link} from "react-router-dom";
 import axios from 'axios'
 
 const initialFormValues = {
@@ -11,26 +10,28 @@ const initialFormValues = {
     lastname: '',
     email: '',
     password: '',
-    title: '',
-    category: '',
-    source: '',
-    ingredients: '',
-    instructions: '',
-  }
-  const initialFormErrors = {
-    username: '',
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    title: '',
-    category: '',
-    source: '',
-    ingredients: '',
-    instructions: '',
-  }
+    // +++ We dont need these i dont think when creating an account? + you dont have values for those
+    // title: '',
+    // category: '',
+    // source: '',
+    // ingredients: '',
+    // instructions: '',
+}
+const initialFormErrors = {
+  username: '',
+  firstname: '',
+  lastname: '',
+  email: '',
+  password: '',
+  // +++ Same there
+  // title: '',
+  // category: '',
+  // source: '',
+  // ingredients: '',
+  // instructions: '',
+}
 
-  const initialDisabled = true
+const initialDisabled = true
 
 export default function SignUp() {
 
@@ -45,18 +46,22 @@ export default function SignUp() {
             lastname: formValues.lastname.trim(),
             email: formValues.email.trim(),
             password: formValues.firstname.trim(),
-            title: formValues.title.trim(),
-            category: formValues.category.trim(),
-            source: formValues.source.trim(),
-            ingredients: formValues.ingredients.trim(),
-            instructions: formValues.instructions.trim(),
+            // title: formValues.title.trim(),
+            // category: formValues.category.trim(),
+            // source: formValues.source.trim(),
+            // ingredients: formValues.ingredients.trim(),
+            // instructions: formValues.instructions.trim(),
         }
-        axios.post('', signupSubmit).then(res => {
+        // Post request towards the server
+        axios.post('https://family-recipes-cookbook.herokuapp.com/user/register', signupSubmit)
+        .then(res => {
           console.log(res)
-        }).catch(e => console.log(e))
+        })
+        .catch(err => console.log({err}))
       }
     
     const inputChange = (name, value) => {
+      // Validating forum first then pluggin in the values
         yup.reach(signupSchema, name)
           .validate(value)
           .then(() => {
@@ -65,6 +70,9 @@ export default function SignUp() {
           .catch(err => {
             setFormErrors({...formErrors, [name]: err.errors[0]})
           })
+
+          console.log(name, value , 'test')
+        // Plugging in values into FORMVALUES
         setFormValues({
           ...formValues,
           [name]: value 
@@ -78,7 +86,7 @@ export default function SignUp() {
 
 return(
     <div className='signup'>
-        <h1>.</h1>
+        <h1>.//</h1>
 
         <SignUpForm
         values={formValues}
@@ -87,10 +95,6 @@ return(
         disabled={disabled}
         errors={formErrors}
         />
-
-        <div>
-            <Link to="/">no sign up pls</Link>
-        </div>
 
     </div>
     )
