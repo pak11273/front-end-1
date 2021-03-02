@@ -9,27 +9,12 @@ import {
 
 import axios from "axios";
 
-// POST /user/register
-// Required fields: { "username": "UniqueUsername", (128 character max, unique) "firstname": "FirstName", (128 character max) "lastname": "LastName", (128 character max) "email": "email@email.com", (256 character max) "password": "password" (128 character max) }
-
-// Returns: { "user_id: 1, "username": "UniqueUsername" }
-
-const dummyUser = {
-  username: "UniqueUsername1",
-  firstname: "FirstName1",
-  lastname: "LastName1",
-  email: "email@email.com1",
-  password: "password1",
-};
-
-export const registerUser = () => (dispatch) => {
+export const registerUser = (user) => (dispatch) => {
   dispatch({ type: REGISTER_USER_START });
   axios
-    .post("https://family-recipes-cookbook.herokuapp.com/user/register", {
-      dummyUser,
-    })
+    .post("https://family-recipes-cookbook.herokuapp.com/user/register", user )
     .then((res) => {
-      dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data.user });
+      dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     })
     .catch((err) => dispatch({ type: REGISTER_USER_FAIL, payload: err }));
 };
@@ -42,13 +27,10 @@ export const loginUser = (payload) => (dispatch) => {
   axios
     .post("https://family-recipes-cookbook.herokuapp.com/user/login", payload)
     .then((res) => {
+      
       dispatch({
         type: LOGIN_USER_SUCCESS,
-        payload: {
-          username: res.data.user.username,
-          user_id: res.data.user.user_id,
-          token: res.data.token,
-        },
+        payload: res.data
       });
     })
     .catch((err) =>

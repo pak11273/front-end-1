@@ -6,6 +6,7 @@
   color: white;
 }
 
+<<<<<<< HEAD
 .nav-bar {
   display: flex;
   justify-content: space-around;
@@ -26,3 +27,34 @@ li {
   display: flex;
   justify-content: space-between;
 }
+=======
+.main-header{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-header nav a{
+  padding: 5px;
+  color:burlywood
+}
+
+
+/* Dashbaord stlyes */
+.dashboard-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.dashboard-content{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+>>>>>>> ba902f39cbddbd441e9863bc8c8a23dd1f94cbff

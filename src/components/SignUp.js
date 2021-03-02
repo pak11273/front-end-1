@@ -2,8 +2,11 @@ import SignUpForm from './SignUpForm'
 import React, {useState, useEffect} from "react";
 import signupSchema from './signupSchema'
 import * as yup from 'yup'
-import {Link} from "react-router-dom";
-import axios from 'axios'
+import {registerUser} from '../actions/index'
+import { connect } from 'react-redux';
+
+// import axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
     username: '',
@@ -11,74 +14,79 @@ const initialFormValues = {
     lastname: '',
     email: '',
     password: '',
-    title: '',
-    category: '',
-    source: '',
-    ingredients: '',
-    instructions: '',
-  }
-  const initialFormErrors = {
-    username: '',
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    title: '',
-    category: '',
-    source: '',
-    ingredients: '',
-    instructions: '',
-  }
+    // +++ We dont need these i dont think when creating an account? + you dont have values for those
+    // title: '',
+    // category: '',
+    // source: '',
+    // ingredients: '',
+    // instructions: '',
+}
+const initialFormErrors = {
+  username: '',
+  firstname: '',
+  lastname: '',
+  email: '',
+  password: '',
+  // +++ Same there
+  // title: '',
+  // category: '',
+  // source: '',
+  // ingredients: '',
+  // instructions: '',
+}
+const initialDisabled = true
 
-  const initialDisabled = true
+function SignUp(props) {
+  const history = useHistory()
+  const [formValues, setFormValues] = useState(initialFormValues)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
+  const [disabled, setDisabled] = useState(initialDisabled)
 
-export default function SignUp() {
-
-    const [formValues, setFormValues] = useState(initialFormValues)
-    const [formErrors, setFormErrors] = useState(initialFormErrors)
-    const [disabled, setDisabled] = useState(initialDisabled)
-
-    const formSubmit = () => {
-        const signupSubmit = {
-            username: formValues.username.trim(),
-            firstname: formValues.firstname.trim(),
-            lastname: formValues.lastname.trim(),
-            email: formValues.email.trim(),
-            password: formValues.firstname.trim(),
-            title: formValues.title.trim(),
-            category: formValues.category.trim(),
-            source: formValues.source.trim(),
-            ingredients: formValues.ingredients.trim(),
-            instructions: formValues.instructions.trim(),
-        }
-        axios.post('', signupSubmit).then(res => {
-          console.log(res)
-        }).catch(e => console.log(e))
+  const formSubmit = () => {
+      const signupSubmit = {
+          username: formValues.username.trim(),
+          firstname: formValues.firstname.trim(),
+          lastname: formValues.lastname.trim(),
+          email: formValues.email.trim(),
+          password: formValues.firstname.trim(),
+          // title: formValues.title.trim(),
+          // category: formValues.category.trim(),
+          // source: formValues.source.trim(),
+          // ingredients: formValues.ingredients.trim(),
+          // instructions: formValues.instructions.trim(),
       }
-    
-    const inputChange = (name, value) => {
-        yup.reach(signupSchema, name)
-          .validate(value)
-          .then(() => {
-            setFormErrors({...formErrors, [name]: ''})
-          })
-          .catch(err => {
-            setFormErrors({...formErrors, [name]: err.errors[0]})
-          })
-        setFormValues({
-          ...formValues,
-          [name]: value 
-        })
+      // Post request towards the server
+      props.registerUser(signupSubmit)
+      history.push('/dashboard')
     }
+  
+  const inputChange = (name, value) => {
+    // Validating forum first then pluggin in the values
+      yup.reach(signupSchema, name)
+        .validate(value)
+        .then(() => {
+          setFormErrors({...formErrors, [name]: ''})
+        })
+        .catch(err => {
+          setFormErrors({...formErrors, [name]: err.errors[0]})
+        })
 
-    useEffect(() => {
-      signupSchema.isValid(formValues).then(valid => 
-        setDisabled(!valid))
-      }, [formValues])
+        console.log(name, value , 'test')
+      // Plugging in values into FORMVALUES
+      setFormValues({
+        ...formValues,
+        [name]: value 
+      })
+  }
+
+  useEffect(() => {
+    signupSchema.isValid(formValues).then(valid => 
+      setDisabled(!valid))
+    }, [formValues])
 
 return(
     <div className='signup'>
-        <h1>.</h1>
+        <h1>.//</h1>
 
         <SignUpForm
         values={formValues}
@@ -88,10 +96,8 @@ return(
         errors={formErrors}
         />
 
-        <div>
-            <Link to="/">no sign up pls</Link>
-        </div>
-
     </div>
     )
 }
+
+export default connect(null, {registerUser})(SignUp)
