@@ -7,11 +7,15 @@ import {
   REGISTER_USER_SUCCESS,
 } from "../consts/index";
 
+const token = localStorage.getItem("token");
+
 const initialState = {
   username: "",
   user_id: "",
   error: "",
   isLoading: "",
+  isRegistered: false,
+  isLoggedIn: token || false,
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -23,12 +27,12 @@ export const userReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case REGISTER_USER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         username: action.payload.username,
         user_id: action.payload.user_id,
         isLoading: false,
+        isRegistered: true,
       };
     case REGISTER_USER_FAIL:
       return {
