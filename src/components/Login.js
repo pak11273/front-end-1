@@ -38,7 +38,6 @@ export default function Login() {
     const [formErrors, setFormErrors] = useState(initialFormErrors)
     const [disabled, setDisabled] = useState(initialDisabled)
 
-
     const inputChange = (name, value) => {
         yup.reach(loginSchema, name)
           .validate(value)
@@ -54,13 +53,12 @@ export default function Login() {
         })
     }
 
-
     const formSubmit = () => {
         const loginSubmit = {
             username: formValues.username.trim(),
             //firstname: formValues.firstname.trim(),
             //lastname: formValues.lastname.trim(),
-            //email: formValues.email.trim(),
+            //email: http://formValues.email.trim(),
             password: formValues.firstname.trim(),
             // title: formValues.title.trim(),
             // category: formValues.category.trim(),
@@ -72,13 +70,11 @@ export default function Login() {
           console.log(res)
         }).catch(e => console.log(e))
       };
-    
 
       useEffect(() => {
       loginSchema.isValid(formValues).then(valid => 
         setDisabled(!valid))
       }, [formValues])
-
 
 return(
     <div className='login'>
