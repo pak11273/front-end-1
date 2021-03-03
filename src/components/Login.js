@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
+import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
@@ -40,19 +40,18 @@ const Login = (props) => {
     });
   };
 
-  const formSubmit =  () => {
+  const formSubmit = () => {
     const loginSubmit = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
     };
-    console.log(loginSubmit)
-    console.log(props)
 
     props.loginUser(loginSubmit);
 
     // If error length is 0 bush the dashbaord
-
-    props.error.length === 0 ? props.history.push('/dashboard') : console.log('false',props.error.length)
+    props.error.length === 0
+      ? props.history.push("/dashboard")
+      : console.log("false", props.error.length);
   };
 
   useEffect(() => {

@@ -24,7 +24,7 @@ function App() {
       <Route path="/signup" component={SignUp} />
 
       {/* Must be logged in to access these pages */}
-      <PrivateRoute path="/edit" component={EditRecipe} />
+      <PrivateRoute exact path="/edit" component={EditRecipe} />
       <PrivateRoute path="/new" component={New} />
       <PrivateRoute path="/display" component={DisplayPage} />
       <PrivateRoute path="/dashboard" component={Dashboard} />

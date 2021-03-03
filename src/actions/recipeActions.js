@@ -8,6 +8,9 @@ import {
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
+  LOAD_RECIPE_TO_EDIT_FAIL,
+  LOAD_RECIPE_TO_EDIT_START,
+  LOAD_RECIPE_TO_EDIT_SUCCESS,
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
@@ -27,7 +30,7 @@ const exampleRecipe = {
   instructions: "All instructions",
 };
 
-export const editRecipe = (recipe) => (dispatch) => {
+export const editRecipe = (recipe, history) => (dispatch) => {
   dispatch({ type: EDIT_RECIPE_START });
   axiosWithAuth()
     .put(
@@ -36,6 +39,7 @@ export const editRecipe = (recipe) => (dispatch) => {
     )
     .then((res) => {
       dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data });
+      history.push("/dashboard");
     })
     .catch((err) => {
       dispatch({
@@ -95,4 +99,11 @@ export const searchRecipes = (search) => (dispatch) => {
         payload: err.response.data.message,
       });
     });
+};
+
+export const loadRecipeToEdit = (recipe, history) => {
+  return {
+    type: LOAD_RECIPE_TO_EDIT_START,
+    payload: recipe,
+  };
 };

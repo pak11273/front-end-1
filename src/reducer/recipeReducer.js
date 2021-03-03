@@ -8,6 +8,9 @@ import {
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
+  LOAD_RECIPE_TO_EDIT_FAIL,
+  LOAD_RECIPE_TO_EDIT_START,
+  LOAD_RECIPE_TO_EDIT_SUCCESS,
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
@@ -18,6 +21,7 @@ const token = localStorage.getItem("token");
 const initialState = {
   search: "",
   recipes: "",
+  recipeToEdit: "",
   error: "",
   isLoading: "",
   successfulEdit: false,
@@ -90,6 +94,24 @@ export const recipeReducer = (state = initialState, action) => {
         isLoading: false,
       };
     case SEARCH_RECIPES_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case LOAD_RECIPE_TO_EDIT_START:
+      return {
+        ...state,
+        recipe: action.payload,
+        isLoading: true,
+      };
+    case LOAD_RECIPE_TO_EDIT_SUCCESS:
+      return {
+        ...state,
+        recipe: action.payload,
+        isLoading: false,
+      };
+    case LOAD_RECIPE_TO_EDIT_FAIL:
       return {
         ...state,
         error: action.payload,
