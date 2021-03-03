@@ -66,7 +66,7 @@ export const recipeReducer = (state = initialState, action) => {
     case SEARCH_RECIPES_SUCCESS:
       return {
         ...state,
-        search: action.payload,
+        recipes: action.payload,
         isLoading: false,
       };
     case SEARCH_RECIPES_FAIL:

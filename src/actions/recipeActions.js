@@ -64,10 +64,9 @@ export const fetchRecipes = (recipes) => (dispatch) => {
 // Returns Array of Recipes that contain desired search input
 
 export const searchRecipes = (search) => (dispatch) => {
-  console.log("seaerch: ", search);
   dispatch({ type: EDIT_RECIPE_START });
   axiosWithAuth()
-    .get(`/recipe/?=${search}`)
+    .get(`/recipe/?search=${search}`)
     .then((res) => {
       console.log("res: ", res);
       dispatch({ type: SEARCH_RECIPES_SUCCESS, payload: res.data });

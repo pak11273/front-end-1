@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-import { connect } from "react-redux";
-import { searchRecipes } from "../actions/recipeActions";
-
 const DashboardSearchForm = (props) => {
   const initialValue = "";
   const { submit, disabled } = props;
