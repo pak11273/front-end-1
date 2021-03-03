@@ -7,15 +7,15 @@ export const NavBar = () => {
         <TitleStyle>Secret Food Recipes!</TitleStyle>
       </div>
       <LinksStyle>
-        <li>
+        <div>
           <a href="/">Home</a>
-        </li>
-        <li>
+        </div>
+        <div>
           <a href="/login">Login</a>
-        </li>
-        <li>
+        </div>
+        <div>
           <a href="/signup">Sign Up</a>
-        </li>
+        </div>
       </LinksStyle>
     </NavStyle>
   );
@@ -38,4 +38,9 @@ const TitleStyle = styled.p`
 
 const LinksStyle = styled.ul`
   display: flex;
+  font-size: 0.8em;
+  justify-content: space-evenly;
+  ::marker {
+    display: none;
+  }
 `;
