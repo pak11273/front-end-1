@@ -23,7 +23,7 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 
   useEffect(() => {
     fetchRecipesById(user.user_id);
-  }, [user.user_id]);
+  }, []);
 
   const formSubmit = (value) => {
     // Form submited
@@ -61,7 +61,7 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
                 <p>{recipe.source}</p>
 
                 {/* Links that will be routed correctly by unit 3 */}
-                <Link to="/">Edit Recipe</Link>
+                <Link to="/edit">Edit Recipe</Link>
                 <Link to="/">Delete Recipe</Link>
                 <Link to="/">Display Recipe</Link>
               </div>
@@ -81,6 +81,7 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
+  console.log(userReducer)
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
