@@ -14,6 +14,7 @@ import {
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
+  DELETE_RECIPE
 } from "../consts";
 
 import axios from "axios";
@@ -107,3 +108,13 @@ export const loadRecipeToEdit = (recipe, history) => {
     payload: recipe,
   };
 };
+
+
+export const deleteRecipe = (id) => dispatch => {
+  axiosWithAuth().delete(`/recipe/${id}`)
+    .then(res => {
+      console.log(res)
+      dispatch({ type: DELETE_RECIPE, payload: res.data})
+    })
+    .catch(err => console.log({err}))
+}

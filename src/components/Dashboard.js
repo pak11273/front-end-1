@@ -6,6 +6,7 @@ import {
   fetchRecipesById,
   loadRecipeToEdit,
   searchRecipes,
+  deleteRecipe
 } from "../actions/recipeActions";
 
 import DashboardSearchForm from "./DashboardSearch";
@@ -26,12 +27,15 @@ function Dashboard({
   searchRecipes,
   loadRecipeToEdit,
   recipes,
+  deleteRecipe
 }) {
   const history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
+
     fetchRecipesById(user.user_id);
+
   }, [user.user_id]);
 
   const formSubmit = (value) => {
@@ -60,6 +64,12 @@ function Dashboard({
     });
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    deleteRecipe(user.user_id)
+    console.log('deleted')
+  }
+
   return (
     <div className="dashboard-container">
       <h2>Dashboard</h2>
@@ -76,7 +86,7 @@ function Dashboard({
                 <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
                   Edit Recipe
                 </Link>
-                <Link to="/">Delete Recipe</Link>
+                <button onClick={handleDelete}>Delete Recipe</button>
                 <Link
                   to={{
                     pathname: "/display",
@@ -102,6 +112,7 @@ function Dashboard({
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
+  console.log(recipeReducer, userReducer)
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
@@ -112,4 +123,5 @@ export default connect(mapStateToProps, {
   searchRecipes,
   fetchRecipesById,
   loadRecipeToEdit,
+  deleteRecipe
 })(Dashboard);
