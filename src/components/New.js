@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom';
+import { axiosWithAuth } from '../auth/axiosWithAuth';
 
 function EditRecipe() {
+  const history = useHistory()
   const initialState = {
     title: '',
     category: '',
@@ -16,10 +19,26 @@ function EditRecipe() {
     setFormState({...formState, [name]: value})
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formState)
+    console.log('submmited')
+
+
+    axiosWithAuth().post('/recipe', formState)
+      .then(res => {
+        console.log(res)
+        history.push('/dashboard')
+      })
+      .catch(err => console.log(err))
+
+
+  }
+
   return (
     <div>
       <h1>New Recipe</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>
           <label>
             Title: <input type='text' name='title' value={formState.title} onChange={handleChange}/>

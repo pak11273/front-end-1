@@ -16,10 +16,17 @@ function EditRecipe() {
     setFormState({...formState, [name]: value})
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('submmited')
+  }
+
+
+
   return (
     <div>
       <h1>Edit Recipe</h1>
-      <form>
+      <form >
         <p>
           <label>
             Title: <input type='text' name='title' value={formState.title} onChange={handleChange}/>
@@ -47,9 +54,7 @@ function EditRecipe() {
             <textarea name='instructions' value={formState.instructions} onChange={handleChange}/>
           </label>
         </p>
-        <p>
-          <input type='submit' value='Submit'/>
-        </p>
+        <button>Submiot</button>
       </form>
     </div>
   )
