@@ -28,7 +28,6 @@ export const registerUser = (user) => (dispatch) => {
 // Returns: { "user": { "user_id: 1, "username": "UniqueUsername" }, "token": "Authentication Token" }
 
 export const loginUser = (payload) => (dispatch) => {
-  console.log(payload);
   dispatch({ type: LOGIN_USER_START });
 
   axios

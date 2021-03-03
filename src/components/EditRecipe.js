@@ -17,8 +17,8 @@ const EditRecipe = (props) => {
   const [formState, setFormState] = useState(initialState);
 
   useEffect(() => {
-    setFormState(props.history.location.recipe);
-  }, []);
+    setFormState(props.recipe);
+  }, [props.recipe]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,14 +30,9 @@ const EditRecipe = (props) => {
     props.editRecipe(formState);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("submmited");
-  };
-
   return (
     <div>
-      {props.successfulEdit && <Redirect to="/dashboardcopy" />}
+      {props.successfulEdit && <Redirect to="/dashboard" />}
       <h1>Edit Recipe</h1>
       <form onSubmit={onSubmit}>
         <p>
@@ -46,7 +41,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="title"
-              value={formState.title}
+              value={formState.title || ""}
               onChange={handleChange}
             />
           </label>
@@ -57,7 +52,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="category"
-              value={formState.category}
+              value={formState.category || ""}
               onChange={handleChange}
             />
           </label>
@@ -68,7 +63,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="source"
-              value={formState.source}
+              value={formState.source || ""}
               onChange={handleChange}
             />
           </label>
@@ -78,7 +73,7 @@ const EditRecipe = (props) => {
             Ingredients (separate with commas): <br />
             <textarea
               name="ingredients"
-              value={formState.ingredients}
+              value={formState.ingredients || ""}
               onChange={handleChange}
             />
           </label>
@@ -88,12 +83,12 @@ const EditRecipe = (props) => {
             Instructions: <br />
             <textarea
               name="instructions"
-              value={formState.instructions}
+              value={formState.instructions || ""}
               onChange={handleChange}
             />
           </label>
         </p>
-        <button>Submiot</button>
+        <button>Submit</button>
       </form>
     </div>
   );
@@ -101,6 +96,7 @@ const EditRecipe = (props) => {
 
 const mapToStateProps = ({ recipeReducer }) => {
   return {
+    recipe: recipeReducer.recipe,
     error: recipeReducer.error,
     isLoading: recipeReducer.isLoading,
     successfulEdit: recipeReducer.successfulEdit,

@@ -8,6 +8,9 @@ import {
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
+  LOAD_RECIPE_TO_EDIT_FAIL,
+  LOAD_RECIPE_TO_EDIT_START,
+  LOAD_RECIPE_TO_EDIT_SUCCESS,
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
@@ -95,4 +98,11 @@ export const searchRecipes = (search) => (dispatch) => {
         payload: err.response.data.message,
       });
     });
+};
+
+export const loadRecipeToEdit = (recipe, history) => {
+  return {
+    type: LOAD_RECIPE_TO_EDIT_START,
+    payload: recipe,
+  };
 };
