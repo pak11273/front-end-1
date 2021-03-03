@@ -23,7 +23,7 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 
   useEffect(() => {
     fetchRecipesById(user.user_id);
-  }, []);
+  }, [user.user_id]);
 
   const formSubmit = (value) => {
     // Form submited

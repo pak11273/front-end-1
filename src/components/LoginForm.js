@@ -26,7 +26,7 @@ const LoginForm = (props) => {
               type="text"
             />
           </label>
-          <span class="error">{errors.username}</span>
+          <span className="error">{errors.username}</span>
         </p>
         <p>
           <label>
@@ -38,7 +38,7 @@ const LoginForm = (props) => {
               type="password"
             />
           </label>
-          <span class="error">{errors.password}</span>
+          <span className="error">{errors.password}</span>
         </p>
       </div>
       <button disabled={disabled}>Log In</button>
