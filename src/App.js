@@ -9,7 +9,7 @@ import DisplayPage from "./components/DisplayPage";
 import EditRecipe from "./components/EditRecipe";
 import SignUp from "./components/SignUp";
 import { NavBar } from "./components/NavBar";
-import Header from "./components/Header";
+
 import New from "./components/New";
 import Dashboard from "./components/Dashboard";
 
@@ -21,7 +21,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Header />
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />

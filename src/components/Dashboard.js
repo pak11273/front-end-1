@@ -9,37 +9,10 @@ const initialFormValues = {
     search: '',
   }
 
-  // geto data
-const s = [
-  {    
-    title: 'Chocolate Cake',
-    category: 'cake, dessert,chocolate',
-    source: 'online',
-    ingredients: 'chocolate, flour, eggs, sugar, milk',
-    instructions: 'mix flour, eggs, sugar, and milk, melt chocolate and mix in, then bake.',
-    user_id: 1
-  },
-  {
-    title: 'Pepperoni Pizza',
-    category: 'dinner, lunch',
-    source: 'me',
-    ingredients: 'dough, sauce, cheese, pepperoni',
-    instructions: 'spread dough, add sauce, cheese and pepperoni, bake',
-    user_id: 2
-  },
-  {
-    title: 'Turkey Dinner', 
-    category: 'turkey, feast, dinner', 
-    source: 'Grandma', 
-    ingredients: 'turkey, veggies, ground turkey', 
-    instructions: 'thaw turkey, and then go get grandma so she can do it.', 
-    user_id: 3
-  }
-]
 
 function Dashboard({ user }) {
   const history = useHistory()
-  const [recipes, setRecipes] = useState(s)
+  const [recipes, setRecipes] = useState([])
   const [formValues, setFormValues] = useState(initialFormValues)
   
   const formSubmit = () => {
@@ -67,7 +40,7 @@ function Dashboard({ user }) {
   useEffect(() => {
     axiosWithAuth().get(`/user/${user.user_id}`)
       .then(res => {
-        console.log(res)
+        setRecipes(res.data)
       })
       .catch(err => {
         console.log({err})
@@ -83,23 +56,27 @@ function Dashboard({ user }) {
       <div className="dashboard-content">
 
       <div className="recipe-hub">
-        {recipes.map(recipe => (
-          <div 
-            className='recipe-card-container'
-            key={recipe.id}>
-        
-        <h2>{recipe.title}</h2>
-        <p>{recipe.category}</p>
-        <p>{recipe.source}</p>
-
+        {
+          recipes.length < 0 
+          ? 'no data' 
+          : recipes.map(recipe => (
+            <div 
+              className='recipe-card-container'
+              key={recipe.id}>
           
-        {/* Links that will be routed correctly by unit 3 */}
-        <Link to="/">Edit Recipe</Link>
-        <Link to="/">Delete Recipe</Link>
-        <Link to="/">Display Recipe</Link>
+          <h2>{recipe.title}</h2>
+          <p>{recipe.category}</p>
+          <p>{recipe.source}</p>
 
-        </div>
-        ))}
+            
+          {/* Links that will be routed correctly by unit 3 */}
+          <Link to="/">Edit Recipe</Link>
+          <Link to="/">Delete Recipe</Link>
+          <Link to="/">Display Recipe</Link>
+
+          </div>
+          ))
+        }
       </div>
 
       <DashboardSearchForm
