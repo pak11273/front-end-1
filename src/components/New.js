@@ -40,6 +40,7 @@ function EditRecipe({user_id}) {
 
   // Function that returns the final version of the state that we want to post
   const stateFormationSequenceOver9000 = (state) => {
+    console.log(user_id)
     return{
       title: state.title,
       category: state.category,
