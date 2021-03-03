@@ -1,11 +1,11 @@
 import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
+import { fetchRecipes, searchRecipes } from "../actions/recipeActions";
 
 import DashboardSearchForm from "./DashboardSearch";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchRecipes } from "../actions/recipeActions";
 
 const initialFormValues = {
   title: "",
@@ -24,14 +24,14 @@ const Dashboard = (props) => {
   }, []);
 
   // form syntax for the searchBar, unclear if it's needed
-  const formSubmit = () => {
-    const searchSubmit = {
-      title: formValues.title.trim(),
-    };
+  const formSubmit = (value) => {
+    props.searchRecipes(value);
+    // const searchSubmit = {
+    //   title: formValues.title.trim(),
+    // };
   };
 
   const inputChange = (name, value) => {
-    console.log(formValues);
     // yup.reach(name)
     //   .validate(value)
     //   .then(() => {
@@ -99,4 +99,6 @@ const mapStateToProps = ({ recipeReducer }) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchRecipes })(Dashboard);
+export default connect(mapStateToProps, { fetchRecipes, searchRecipes })(
+  Dashboard
+);

@@ -5,6 +5,9 @@ import {
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
+  SEARCH_RECIPES_FAIL,
+  SEARCH_RECIPES_START,
+  SEARCH_RECIPES_SUCCESS,
 } from "../consts";
 
 import axios from "axios";
@@ -29,7 +32,6 @@ export const editRecipe = (recipe) => (dispatch) => {
       recipe
     )
     .then((res) => {
-      console.log("res: ", res);
       dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -50,6 +52,29 @@ export const fetchRecipes = (recipes) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: FETCH_RECIPES_FAIL,
+        payload: err.response.data.message,
+      });
+    });
+};
+
+// GET /recipe/?=$titleORcategory
+// Get Recipe by Searching for Title or Category
+// Requires: replace $titleORcategory with desired search (ex. pizza, piz, dinner, din)
+
+// Returns Array of Recipes that contain desired search input
+
+export const searchRecipes = (search) => (dispatch) => {
+  console.log("seaerch: ", search);
+  dispatch({ type: EDIT_RECIPE_START });
+  axiosWithAuth()
+    .get(`/recipe/?=${search}`)
+    .then((res) => {
+      console.log("res: ", res);
+      dispatch({ type: SEARCH_RECIPES_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: SEARCH_RECIPES_FAIL,
         payload: err.response.data.message,
       });
     });
