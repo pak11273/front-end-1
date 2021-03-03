@@ -1,7 +1,8 @@
-import { Link, withRouter } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
+import { deleteRecipe } from "../actions/recipeActions";
 
 function DisplayPage(props) {
   const initialState = {
@@ -11,14 +12,21 @@ function DisplayPage(props) {
     ingredients: "",
     instructions: [],
     user_id: "",
+    error: "",
   };
   const [recipe, setRecipe] = useState(initialState);
+  const history = useHistory();
 
   const ingredientsArray = recipe.ingredients.split(",");
 
   useEffect(() => {
     setRecipe(props.history.location.recipe);
   }, []);
+
+  const handleDelete = (e, recipe) => {
+    e.preventDefault();
+    props.deleteRecipe(recipe, history);
+  };
 
   return (
     <div>
@@ -32,7 +40,10 @@ function DisplayPage(props) {
       >
         Edit Recipes
       </Link>
-      <a href="/delete">Delete Recipe</a>
+      {props.error && <div style={{ color: "red" }}>{props.error}</div>}
+      <Link to="/delete" onClick={(e) => handleDelete(e, recipe)}>
+        Delete Recipe
+      </Link>
       <p>
         categories: <em>{recipe.category}</em>
       </p>
@@ -49,4 +60,12 @@ function DisplayPage(props) {
   );
 }
 
-export default withRouter(connect(null, {})(DisplayPage));
+const mapStateToProps = ({ recipeReducer }) => {
+  return {
+    error: recipeReducer.error,
+  };
+};
+
+export default withRouter(
+  connect(mapStateToProps, { deleteRecipe })(DisplayPage)
+);
