@@ -74,7 +74,7 @@ export default function SignUpForm({
         </label>
         <p>{errors.password}</p>
         <div>
-          <button>Log In</button>
+          <button>Sign Up</button>
         </div>
       </div>
     </form>
