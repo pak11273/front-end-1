@@ -26,10 +26,10 @@ const NavStyle = styled.nav`
   justify-content: space-around;
   align-items: center;
   min-height: 4vh;
-  background-color: wheat;
+  background-color: ${pr => pr.theme.primaryColor};
 `;
 const TitleStyle = styled.p`
-  color: black;
+  color: ${pr => pr.theme.fontColor};
   text-transform: uppercase;
   letter-spacing: 1%;
   font-size: 0.8em;

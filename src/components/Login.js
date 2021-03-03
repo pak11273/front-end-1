@@ -1,12 +1,30 @@
 import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
+import styled from 'styled-components'
 
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
 import { loginUser } from "../actions";
+
+//styling for Login function
+const StyledLogin = styled.div`
+  background-color: ${pr => pr.theme.lightestColor};
+  padding: ${pr => pr.theme.padding.backgroundPadding};
+
+
+`
+const StyledLink =styled.div `
+    color: ${pr => pr.theme.fontColor};
+    font-size: ${pr => pr.theme.fontSize.button};
+    margin: ${pr => pr.theme.margin.button};
+    white-space: ${pr => pr.theme.whiteSpace};
+    background-color: ${pr => pr.theme.lightestColor};
+
+  `
+  
 
 const initialFormValues = {
   username: "",
@@ -18,6 +36,7 @@ const initialFormErrors = {
 };
 
 const initialDisabled = true;
+
 
 const Login = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues);
@@ -59,8 +78,10 @@ const Login = (props) => {
   }, [formValues]);
 
   return (
-    <div className="login">
-      <h1>.</h1>
+    <StyledLogin className="login">
+      
+      <div>
+      
 
       <LoginForm
         values={formValues}
@@ -70,11 +91,12 @@ const Login = (props) => {
         errors={formErrors}
       />
 
-      <div>
+      <StyledLink>
         {props.error && <div style={{ color: "red" }}>{props.error}</div>}
         <Link to="/">no log in thx</Link>
+      </StyledLink>
       </div>
-    </div>
+    </StyledLogin>
   );
 };
 
