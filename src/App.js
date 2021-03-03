@@ -1,19 +1,19 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute";
+import "./App.css";
 
+import Dashboard from "./components/Dashboard";
+import DisplayPage from "./components/DisplayPage";
+import DisplayPageCopy from "./components/DashboardCopy";
+import EditRecipe from "./components/EditRecipe";
+import Header from "./components/Header";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import LoginForm from "./components/LoginForm";
-import DisplayPage from "./components/DisplayPage";
-import EditRecipe from "./components/EditRecipe";
-import SignUp from "./components/SignUp";
 import { NavBar } from "./components/NavBar";
-import Header from "./components/Header";
 import New from "./components/New";
-import Dashboard from "./components/Dashboard";
-
-import "./App.css";
+import PrivateRoute from "./components/PrivateRoute";
+import React from "react";
+import { Route } from "react-router-dom";
+import SignUp from "./components/SignUp";
 
 const token = localStorage.getItem("token");
 
@@ -30,6 +30,7 @@ function App() {
       <PrivateRoute path="/edit" component={EditRecipe} />
       <PrivateRoute path="/new" component={New} />
       <PrivateRoute path="/display" component={DisplayPage} />
+      <PrivateRoute path="/displaypagecopy" component={DisplayPageCopy} />
       <PrivateRoute path="/dashboard" component={Dashboard} />
     </div>
   );
