@@ -1,15 +1,17 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../auth/axiosWithAuth';
+import { connect } from "react-redux";
 
-function EditRecipe() {
+function EditRecipe({user_id}) {
+  
   const history = useHistory()
   const initialState = {
     title: '',
     category: '',
     source: '',
     ingredients: '',
-    instructions: '',
+    instructions: ''
   }
 
   const [formState, setFormState] = useState(initialState);
@@ -23,16 +25,29 @@ function EditRecipe() {
     e.preventDefault()
     console.log(formState)
     console.log('submmited')
+    console.log(stateFormationSequenceOver9000(formState))
 
 
-    axiosWithAuth().post('/recipe', formState)
+    axiosWithAuth().post('/recipe', stateFormationSequenceOver9000(formState))
       .then(res => {
         console.log(res)
         history.push('/dashboard')
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log({err}))
 
 
+  }
+
+  // Function that returns the final version of the state that we want to post
+  const stateFormationSequenceOver9000 = (state) => {
+    return{
+      title: state.title,
+      category: state.category,
+      source: state.source,
+      ingredients: state.ingredients,
+      instructions: state.instructions,
+      user_id: user_id
+    }
   }
 
   return (
@@ -74,4 +89,11 @@ function EditRecipe() {
   )
 }
 
-export default EditRecipe
+const mapStateToProps = state => {
+  console.log(state.userReducer.user)
+  return({
+    user_id: state.userReducer.user.user_id
+  })
+}
+
+export default connect(mapStateToProps)(EditRecipe)
