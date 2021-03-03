@@ -6,6 +6,28 @@
   color: white;
 }
 
+<<<<<<< HEAD
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 4vh;
+  background-color: wheat;
+}
+
+p {
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+  font-size: 0.8em;
+  font-family: Georgia;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
+=======
 .main-header{
   width: 100%;
   padding: 10px;
@@ -35,3 +57,4 @@
   flex-direction: row-reverse;
 }
 
+>>>>>>> ba902f39cbddbd441e9863bc8c8a23dd1f94cbff
