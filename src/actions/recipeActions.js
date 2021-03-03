@@ -2,6 +2,9 @@ import {
   EDIT_RECIPE_FAIL,
   EDIT_RECIPE_START,
   EDIT_RECIPE_SUCCESS,
+  FETCH_RECIPES_BY_ID_FAIL,
+  FETCH_RECIPES_BY_ID_START,
+  FETCH_RECIPES_BY_ID_SUCCESS,
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
@@ -52,6 +55,21 @@ export const fetchRecipes = (recipes) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: FETCH_RECIPES_FAIL,
+        payload: err.response.data.message,
+      });
+    });
+};
+
+export const fetchRecipesById = (id) => (dispatch) => {
+  dispatch({ type: FETCH_RECIPES_BY_ID_START });
+  axiosWithAuth()
+    .get(`/user/${id}`)
+    .then((res) => {
+      dispatch({ type: FETCH_RECIPES_BY_ID_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: FETCH_RECIPES_BY_ID_FAIL,
         payload: err.response.data.message,
       });
     });

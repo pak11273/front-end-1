@@ -2,6 +2,9 @@ import {
   EDIT_RECIPE_FAIL,
   EDIT_RECIPE_START,
   EDIT_RECIPE_SUCCESS,
+  FETCH_RECIPES_BY_ID_FAIL,
+  FETCH_RECIPES_BY_ID_START,
+  FETCH_RECIPES_BY_ID_SUCCESS,
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
@@ -53,6 +56,23 @@ export const recipeReducer = (state = initialState, action) => {
         isLoading: false,
       };
     case FETCH_RECIPES_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case FETCH_RECIPES_BY_ID_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_RECIPES_BY_ID_SUCCESS:
+      return {
+        ...state,
+        recipes: action.payload,
+        isLoading: false,
+      };
+    case FETCH_RECIPES_BY_ID_FAIL:
       return {
         ...state,
         error: action.payload,
