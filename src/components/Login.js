@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 
@@ -39,7 +39,6 @@ const initialDisabled = true;
 
 
 const Login = (props) => {
-  const history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -60,17 +59,19 @@ const Login = (props) => {
     });
   };
 
-  const formSubmit = async () => {
+  const formSubmit =  () => {
     const loginSubmit = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
     };
+    console.log(loginSubmit)
+    console.log(props)
+
     props.loginUser(loginSubmit);
-    if (!props.error) {
-      console.log("err: ", props.error);
-    } else {
-      history.push("/dashboard");
-    }
+
+    // If error length is 0 bush the dashbaord
+
+    props.error.length === 0 ? props.history.push('/dashboard') : console.log('false',props.error.length)
   };
 
   useEffect(() => {

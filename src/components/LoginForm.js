@@ -34,12 +34,12 @@ const StyledLoginForm = styled.form`
     border-radius: ${pr => pr.theme.input.borderRadius};
   }
 
-`
-const StyledErrors = styled.span `
+
+span{
     color: ${pr => pr.theme.errorColor};
     font-size: ${pr => pr.theme.fontSize.small};
     white-space: ${pr => pr.theme.whiteSpace};
-
+}
 `
 
 
@@ -71,7 +71,7 @@ const LoginForm = (props) => {
               type="text"
             />
           </label>
-          <StyledErrors>{errors.username}</StyledErrors>
+          <span className="error">{errors.username}</span>
         </p>
         <p>
           <label>
@@ -83,7 +83,8 @@ const LoginForm = (props) => {
               type="password"
             />
           </label>
-          <StyledErrors>{errors.password}</StyledErrors>
+          <span className="error">{errors.password}</span>
+
         </p>
       </div>
       <button disabled={disabled}>Log In</button>
