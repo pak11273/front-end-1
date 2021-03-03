@@ -2,7 +2,11 @@ import * as yup from "yup";
 
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { fetchRecipesById, searchRecipes } from "../actions/recipeActions";
+import {
+  fetchRecipesById,
+  loadRecipeToEdit,
+  searchRecipes,
+} from "../actions/recipeActions";
 
 import DashboardSearchForm from "./DashboardSearch";
 import { connect } from "react-redux";
@@ -16,23 +20,32 @@ const initialFormValues = {
   search: "",
 };
 
-function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
+function Dashboard({
+  user,
+  fetchRecipesById,
+  searchRecipes,
+  loadRecipeToEdit,
+  recipes,
+}) {
   const history = useHistory();
-  // const [recipes, setRecipes] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
     fetchRecipesById(user.user_id);
-  }, []);
+  }, [user.user_id]);
 
   const formSubmit = (value) => {
     // Form submited
-    console.log("form submited");
     searchRecipes(value);
   };
 
+  const handleEditClick = (e, recipe) => {
+    e.preventDefault();
+    loadRecipeToEdit(recipe);
+    history.push("/edit");
+  };
+
   const inputChange = (name, value) => {
-    console.log(formValues);
     // yup.reach(name)
     //   .validate(value)
     //   .then(() => {
@@ -60,10 +73,18 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
                 <p>{recipe.category}</p>
                 <p>{recipe.source}</p>
 
-                {/* Links that will be routed correctly by unit 3 */}
-                <Link to="/edit">Edit Recipe</Link>
+                <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
+                  Edit Recipe
+                </Link>
                 <Link to="/">Delete Recipe</Link>
-                <Link to="/">Display Recipe</Link>
+                <Link
+                  to={{
+                    pathname: "/display",
+                    recipe: recipe,
+                  }}
+                >
+                  Display Recipe
+                </Link>
               </div>
             ))}
         </div>
@@ -81,13 +102,14 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
-  console.log(userReducer)
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
   };
 };
 
-export default connect(mapStateToProps, { searchRecipes, fetchRecipesById })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  searchRecipes,
+  fetchRecipesById,
+  loadRecipeToEdit,
+})(Dashboard);
