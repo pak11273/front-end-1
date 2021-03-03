@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 
 import DashboardSearchForm from "./DashboardSearch";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { connect } from "react-redux";
 import { fetchRecipes } from "../actions/recipeActions";
 
@@ -24,34 +23,6 @@ const Dashboard = (props) => {
     props.fetchRecipes();
   }, []);
 
-  //data from api
-  const recipes = [
-    {
-      title: "Chocolate Cake",
-      category: "cake, dessert,chocolate",
-      source: "online",
-      ingredients: "chocolate, flour, eggs, sugar, milk",
-      instructions:
-        "mix flour, eggs, sugar, and milk, melt chocolate and mix in, then bake.",
-      user_id: 1,
-    },
-    {
-      title: "Pepperoni Pizza",
-      category: "dinner, lunch",
-      source: "me",
-      ingredients: "dough, sauce, cheese, pepperoni",
-      instructions: "spread dough, add sauce, cheese and pepperoni, bake",
-      user_id: 2,
-    },
-    {
-      title: "Turkey Dinner",
-      category: "turkey, feast, dinner",
-      source: "Grandma",
-      ingredients: "turkey, veggies, ground turkey",
-      instructions: "thaw turkey, and then go get grandma so she can do it.",
-      user_id: 3,
-    },
-  ];
   // form syntax for the searchBar, unclear if it's needed
   const formSubmit = () => {
     const searchSubmit = {
@@ -94,7 +65,7 @@ const Dashboard = (props) => {
             <Link
               to={{
                 pathname: "/edit",
-                state: formValues,
+                recipe,
               }}
             >
               Edit Recipes

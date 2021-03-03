@@ -1,8 +1,8 @@
 import "./App.css";
 
 import Dashboard from "./components/Dashboard";
+import DashboardCopy from "./components/DashboardCopy";
 import DisplayPage from "./components/DisplayPage";
-import DisplayPageCopy from "./components/DashboardCopy";
 import EditRecipe from "./components/EditRecipe";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -30,7 +30,7 @@ function App() {
       <PrivateRoute path="/edit" component={EditRecipe} />
       <PrivateRoute path="/new" component={New} />
       <PrivateRoute path="/display" component={DisplayPage} />
-      <PrivateRoute path="/displaypagecopy" component={DisplayPageCopy} />
+      <PrivateRoute path="/dashboardcopy" component={DashboardCopy} />
       <PrivateRoute path="/dashboard" component={Dashboard} />
     </div>
   );

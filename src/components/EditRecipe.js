@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Redirect, withRouter } from "react-router-dom";
 
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { editRecipe } from "../actions/recipeActions";
 
 const EditRecipe = (props) => {
+  console.log(props);
   const initialState = {
     recipe_id: "",
     title: "",
@@ -15,6 +16,10 @@ const EditRecipe = (props) => {
   };
 
   const [formState, setFormState] = useState(initialState);
+
+  useEffect(() => {
+    setFormState(props.history.location.recipe);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -100,4 +105,4 @@ const mapToStateProps = ({ recipeReducer }) => {
   };
 };
 
-export default connect(mapToStateProps, { editRecipe })(EditRecipe);
+export default withRouter(connect(mapToStateProps, { editRecipe })(EditRecipe));
