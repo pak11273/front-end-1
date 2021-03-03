@@ -1,37 +1,6 @@
-
 .App {
   background-color: #282c34;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.main-header{
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.main-header nav a{
-  padding: 5px;
-  color:burlywood
-}
-
-
-/* Dashbaord stlyes */
-.dashboard-container {
-  width: 100%;
-  padding: 10px;
-}
-
-.dashboard-content{
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-}
-

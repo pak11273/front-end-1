@@ -2,9 +2,9 @@ import * as yup from 'yup'
 
 const loginSchema = yup.object().shape({
     username: yup.string()
-    .required('Username is required').min(3, 'Must be 3 characters'),
+    .required('Username is required'),
     password: yup.string()
-    .required('Password is required').min(7, 'Must be 7 characters'),
+    .required('Password is required'),
 
     // firstname: yup.string()
     // .required('First Name is required'),
