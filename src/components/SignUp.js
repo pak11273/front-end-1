@@ -6,10 +6,13 @@ import SignUpForm from "./SignUpForm";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/index";
 import signupSchema from "./signupSchema";
-import { useHistory } from "react-router-dom";
+
+// import { useHistory } from "react-router-dom";
 
 // import axios from 'axios'
 
+// import axios from 'axios'
+// import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
   username: "",
@@ -40,7 +43,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 function SignUp(props) {
-  const history = useHistory();
+  // const history = useHistory()
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -60,7 +63,7 @@ function SignUp(props) {
     };
     // Post request towards the server
     props.registerUser(signupSubmit);
-    history.push("/dashboard");
+    // history.push("/dashboard");
   };
 
   const inputChange = (name, value) => {
