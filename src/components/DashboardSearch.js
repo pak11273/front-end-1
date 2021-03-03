@@ -1,35 +1,29 @@
-import React from 'react';
-// searchbar to be powered by unit 3. I don't know what all is involved with building a search bar so if there's more in here, or in Dashboard.js to work on please let me know.
+import React, { useState } from "react";
 
-export default function DashboardSearchForm(props){
-    const {
-        values,
-        submit,
-        change,
-        disabled,
-    } = props
+const DashboardSearchForm = (props) => {
+  const initialValue = "";
+  const { submit, disabled } = props;
+  const [input, changeInput] = useState(initialValue);
 
-    const onSubmit = evt => {
-        evt.preventDefault()
-        submit()
-    }
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    submit(input);
+  };
 
-    const onChange = evt => {
-        const { name, value } = evt.target
-        change(name, value)
-      }
+  const onChange = (evt) => {
+    const { value } = evt.target;
+    changeInput(value);
+  };
 
-    return(
-        <form className='dashboard-search-container' onSubmit={onSubmit}>
-            <label>Search Bar
-            <input  
-            value={values.title}
-            onChange={onChange}
-            name='search'
-            type='text'
-            />
-        </label>
-        <button disabled={disabled}>Search</button>
-        </form>
-    )
-}
+  return (
+    <form className="dashboard-search-container" onSubmit={onSubmit}>
+      <label>
+        Search Bar
+        <input value={input} onChange={onChange} name="search" type="text" />
+      </label>
+      <button disabled={disabled}>Search</button>
+    </form>
+  );
+};
+
+export default DashboardSearchForm;

@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
+import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-import { Link, useHistory } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
@@ -20,7 +20,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 const Login = (props) => {
-  const history = useHistory()
+  const history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -41,14 +41,17 @@ const Login = (props) => {
     });
   };
 
-
   const formSubmit = async () => {
     const loginSubmit = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
     };
     props.loginUser(loginSubmit);
-    history.push('/dashboard')
+    if (!props.error) {
+      console.log("err: ", props.error);
+    } else {
+      history.push("/dashboard");
+    }
   };
 
   useEffect(() => {

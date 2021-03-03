@@ -12,11 +12,16 @@ import axios from "axios";
 export const registerUser = (user) => (dispatch) => {
   dispatch({ type: REGISTER_USER_START });
   axios
-    .post("https://family-recipes-cookbook.herokuapp.com/user/register", user )
+    .post("https://family-recipes-cookbook.herokuapp.com/user/register", user)
     .then((res) => {
       dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     })
-    .catch((err) => dispatch({ type: REGISTER_USER_FAIL, payload: err }));
+    .catch((err) => {
+      dispatch({
+        type: REGISTER_USER_FAIL,
+        payload: err.response.data.message,
+      });
+    });
 };
 
 // login feature
@@ -27,10 +32,9 @@ export const loginUser = (payload) => (dispatch) => {
   axios
     .post("https://family-recipes-cookbook.herokuapp.com/user/login", payload)
     .then((res) => {
-      
       dispatch({
         type: LOGIN_USER_SUCCESS,
-        payload: res.data
+        payload: res.data,
       });
     })
     .catch((err) =>
