@@ -1,4 +1,7 @@
 import {
+  DELETE_RECIPE_FAIL,
+  DELETE_RECIPE_START,
+  DELETE_RECIPE_SUCCESS,
   EDIT_RECIPE_FAIL,
   EDIT_RECIPE_START,
   EDIT_RECIPE_SUCCESS,
@@ -30,6 +33,25 @@ const initialState = {
 
 export const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
+    case DELETE_RECIPE_START:
+      return {
+        ...state,
+        error: "",
+        isLoading: true,
+      };
+    case DELETE_RECIPE_SUCCESS:
+      return {
+        ...state,
+        recipe: action.payload,
+        isLoading: false,
+        successfulEdit: true,
+      };
+    case DELETE_RECIPE_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
     case EDIT_RECIPE_START:
       return {
         ...state,

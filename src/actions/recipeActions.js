@@ -1,4 +1,7 @@
 import {
+  DELETE_RECIPE_FAIL,
+  DELETE_RECIPE_START,
+  DELETE_RECIPE_SUCCESS,
   EDIT_RECIPE_FAIL,
   EDIT_RECIPE_START,
   EDIT_RECIPE_SUCCESS,
@@ -50,6 +53,26 @@ export const editRecipe = (recipe, history) => (dispatch) => {
     });
 };
 
+export const deleteRecipe = (recipe, history) => (dispatch) => {
+  dispatch({ type: DELETE_RECIPE_START });
+  axiosWithAuth()
+    .delete(
+      `https://family-recipes-cookbook.herokuapp.com/recipe/${recipe.recipe_id}`,
+      recipe
+    )
+    .then((res) => {
+      dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
+      history.push("/dashboard");
+    })
+    .catch((err) => {
+      dispatch({
+        type: DELETE_RECIPE_FAIL,
+        // payload: err.response.data.message,
+        payload: "Server Error: could not delete resource",
+      });
+    });
+};
+
 export const fetchRecipes = (recipes) => (dispatch) => {
   dispatch({ type: FETCH_RECIPES_START });
   axiosWithAuth()
@@ -91,7 +114,6 @@ export const searchRecipes = (search) => (dispatch) => {
   axiosWithAuth()
     .get(`/recipe/?search=${search}`)
     .then((res) => {
-      console.log("res: ", res);
       dispatch({ type: SEARCH_RECIPES_SUCCESS, payload: res.data });
     })
     .catch((err) => {
