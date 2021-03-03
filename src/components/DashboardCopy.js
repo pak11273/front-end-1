@@ -71,7 +71,14 @@ const Dashboard = (props) => {
               Edit Recipes
             </Link>
             <Link to="/">Delete Recipe</Link>
-            <Link to="/">Display Recipe</Link>
+            <Link
+              to={{
+                pathname: "/display",
+                recipe,
+              }}
+            >
+              Display Recipe
+            </Link>
           </div>
         ))}
 

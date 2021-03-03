@@ -23,12 +23,13 @@ const exampleRecipe = {
 
 export const editRecipe = (recipe) => (dispatch) => {
   dispatch({ type: EDIT_RECIPE_START });
-  axios
+  axiosWithAuth()
     .put(
       `https://family-recipes-cookbook.herokuapp.com/recipe/${recipe.recipe_id}`,
       recipe
     )
     .then((res) => {
+      console.log("res: ", res);
       dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data });
     })
     .catch((err) => {

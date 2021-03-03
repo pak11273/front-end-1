@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { editRecipe } from "../actions/recipeActions";
 
 const EditRecipe = (props) => {
-  console.log(props);
   const initialState = {
     recipe_id: "",
     title: "",
@@ -33,7 +32,7 @@ const EditRecipe = (props) => {
 
   return (
     <div>
-      {props.successfulEdit && <Redirect to="/" />}
+      {props.successfulEdit && <Redirect to="/dashboardcopy" />}
       <h1>Edit Recipe</h1>
       <form onSubmit={onSubmit}>
         <p>
