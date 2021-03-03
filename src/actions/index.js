@@ -28,12 +28,12 @@ export const registerUser = (user) => (dispatch) => {
 // Returns: { "user": { "user_id: 1, "username": "UniqueUsername" }, "token": "Authentication Token" }
 
 export const loginUser = (payload) => (dispatch) => {
+  console.log(payload);
   dispatch({ type: LOGIN_USER_START });
-  
+
   axios
     .post("https://family-recipes-cookbook.herokuapp.com/user/login", payload)
     .then((res) => {
-      console.log(res)
       dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: res.data,

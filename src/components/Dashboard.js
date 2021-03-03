@@ -23,16 +23,14 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 
   useEffect(() => {
     fetchRecipesById(user.user_id);
-  }, []);
+  }, [user.user_id]);
 
   const formSubmit = (value) => {
     // Form submited
-    console.log("form submited");
     searchRecipes(value);
   };
 
   const inputChange = (name, value) => {
-    console.log(formValues);
     // yup.reach(name)
     //   .validate(value)
     //   .then(() => {
@@ -81,7 +79,6 @@ function Dashboard({ user, fetchRecipesById, searchRecipes, recipes }) {
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
-  console.log(userReducer)
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
