@@ -46,7 +46,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="title"
-              value={formState.title}
+              // value={formState.title}
               onChange={handleChange}
             />
           </label>
@@ -57,7 +57,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="category"
-              value={formState.category}
+              // value={formState.category}
               onChange={handleChange}
             />
           </label>
@@ -68,7 +68,7 @@ const EditRecipe = (props) => {
             <input
               type="text"
               name="source"
-              value={formState.source}
+              // value={formState.source}
               onChange={handleChange}
             />
           </label>
@@ -78,7 +78,7 @@ const EditRecipe = (props) => {
             Ingredients (separate with commas): <br />
             <textarea
               name="ingredients"
-              value={formState.ingredients}
+              // value={formState.ingredients}
               onChange={handleChange}
             />
           </label>
@@ -88,7 +88,7 @@ const EditRecipe = (props) => {
             Instructions: <br />
             <textarea
               name="instructions"
-              value={formState.instructions}
+              // value={formState.instructions}
               onChange={handleChange}
             />
           </label>
