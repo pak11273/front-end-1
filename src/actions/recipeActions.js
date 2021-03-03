@@ -30,7 +30,7 @@ const exampleRecipe = {
   instructions: "All instructions",
 };
 
-export const editRecipe = (recipe) => (dispatch) => {
+export const editRecipe = (recipe, history) => (dispatch) => {
   dispatch({ type: EDIT_RECIPE_START });
   axiosWithAuth()
     .put(
@@ -39,6 +39,7 @@ export const editRecipe = (recipe) => (dispatch) => {
     )
     .then((res) => {
       dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data });
+      history.push("/dashboard");
     })
     .catch((err) => {
       dispatch({

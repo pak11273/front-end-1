@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { editRecipe } from "../actions/recipeActions";
@@ -15,6 +15,7 @@ const EditRecipe = (props) => {
   };
 
   const [formState, setFormState] = useState(initialState);
+  const history = useHistory();
 
   useEffect(() => {
     setFormState(props.recipe);
@@ -27,12 +28,11 @@ const EditRecipe = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.editRecipe(formState);
+    props.editRecipe(formState, history);
   };
 
   return (
     <div>
-      {props.successfulEdit && <Redirect to="/dashboard" />}
       <h1>Edit Recipe</h1>
       <form onSubmit={onSubmit}>
         <p>
