@@ -30,6 +30,11 @@ const EditRecipe = (props) => {
     props.editRecipe(formState);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submmited");
+  };
+
   return (
     <div>
       {props.successfulEdit && <Redirect to="/dashboardcopy" />}
@@ -88,9 +93,7 @@ const EditRecipe = (props) => {
             />
           </label>
         </p>
-        <p>
-          <input type="submit" value="Submit" />
-        </p>
+        <button>Submiot</button>
       </form>
     </div>
   );

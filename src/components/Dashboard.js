@@ -2,56 +2,11 @@ import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
 
-import DashboardSearchForm from "./DashboardSearch";
-import { Link } from "react-router-dom";
-import axios from "axios";
-
-const initialFormValues = {
-  // username: '',
-  // firstname: '',
-  // lastname: '',
-  // email: '',
-  // password: '',
-  // title: '',
-  // category: '',
-  // source: '',
-  // ingredients: '',
-  // instructions: '',
-  search: "",
-};
-
-function Dashboard() {
+function Dashboard({ user }) {
+  const history = useHistory();
+  const [recipes, setRecipes] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
 
-  //data from api
-  const recipes = [
-    {
-      title: "Chocolate Cake",
-      category: "cake, dessert,chocolate",
-      source: "online",
-      ingredients: "chocolate, flour, eggs, sugar, milk",
-      instructions:
-        "mix flour, eggs, sugar, and milk, melt chocolate and mix in, then bake.",
-      user_id: 1,
-    },
-    {
-      title: "Pepperoni Pizza",
-      category: "dinner, lunch",
-      source: "me",
-      ingredients: "dough, sauce, cheese, pepperoni",
-      instructions: "spread dough, add sauce, cheese and pepperoni, bake",
-      user_id: 2,
-    },
-    {
-      title: "Turkey Dinner",
-      category: "turkey, feast, dinner",
-      source: "Grandma",
-      ingredients: "turkey, veggies, ground turkey",
-      instructions: "thaw turkey, and then go get grandma so she can do it.",
-      user_id: 3,
-    },
-  ];
-  // form syntax for the searchBar, unclear if it's needed
   const formSubmit = () => {
     const searchSubmit = {
       title: formValues.title.trim(),
@@ -80,42 +35,50 @@ function Dashboard() {
       [name]: value,
     });
   };
-  // no schema or validation yet
-  // useEffect(() => {
-  //   searchSchema.isValid(formValues).then(valid =>
-  //     setDisabled(!valid))
-  //   }, [formValues])
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/user/${user.user_id}`)
+      .then((res) => {
+        setRecipes(res.data);
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+  }, [user]);
+
+  console.log(user.user_id);
 
   return (
     <div className="dashboard-container">
       <h2>Dashboard</h2>
-      {recipes.map((recipe) => (
-        <div className="recipe-card-container" key={recipe.id}>
-          <h2>{recipe.title}</h2>
-          <p>{recipe.category}</p>
-          <p>{recipe.source}</p>
 
-          {/* Links that will be routed correctly by unit 3 */}
-          <Link
-            to={{
-              pathname: "/edit",
-              state: formValues,
-            }}
-          >
-            Edit Recipes
-          </Link>
-          <Link to="/">Delete Recipe</Link>
-          <Link to="/">Display Recipe</Link>
+      <div className="dashboard-content">
+        <div className="recipe-hub">
+          {recipes.length < 0
+            ? "no data"
+            : recipes.map((recipe) => (
+                <div className="recipe-card-container" key={recipe.id}>
+                  <h2>{recipe.title}</h2>
+                  <p>{recipe.category}</p>
+                  <p>{recipe.source}</p>
+
+                  {/* Links that will be routed correctly by unit 3 */}
+                  <Link to="/">Edit Recipe</Link>
+                  <Link to="/">Delete Recipe</Link>
+                  <Link to="/">Display Recipe</Link>
+                </div>
+              ))}
         </div>
-      ))}
 
-      <DashboardSearchForm
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-      />
+        <DashboardSearchForm
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+        />
 
-      {/* <button onClick={() => history.push("/new")}>Add New</button> */}
+        {/* <button onClick={() => history.push("/new")}>Add New</button> */}
+      </div>
     </div>
   );
 }
