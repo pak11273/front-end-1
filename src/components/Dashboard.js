@@ -48,6 +48,12 @@ function Dashboard({
     history.push("/edit");
   };
 
+  const handleDisplayClick = (e, recipe) => {
+    e.preventDefault();
+    loadRecipeToEdit(recipe);
+    history.push("/display");
+  };
+
   const handleDelete = (e, recipe) => {
     e.preventDefault();
     deleteRecipe(recipe, history);
@@ -88,13 +94,19 @@ function Dashboard({
                   Delete Recipe
                 </Link>
                 <Link
+                  to="/display"
+                  onClick={(e) => handleDisplayClick(e, recipe)}
+                >
+                  Display Recipe
+                </Link>
+                {/* <Link
                   to={{
                     pathname: "/display",
                     recipe: recipe,
                   }}
                 >
                   Display Recipe
-                </Link>
+                </Link> */}
               </div>
             ))}
         </div>

@@ -125,8 +125,6 @@ export const searchRecipes = (search) => (dispatch) => {
 };
 
 export const loadRecipeToEdit = (recipe, history) => {
-  console.log("recipe: ", recipe);
-  console.log("history: ", history);
   return {
     type: LOAD_RECIPE_TO_EDIT_START,
     payload: recipe,
