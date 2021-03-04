@@ -4,12 +4,15 @@ import {Link} from "react-router-dom";
 const Home = () => {
 
     return(
-        <div>
-            <div>mama mia</div>
-            <Link to="/login">login to seeya muh ma's recipe</Link>
-            <br></br>
-            <Link to="/signup">sign up or whateva</Link>
-        </div>
+            <div>
+                <h1>Secret Family Recipe</h1>
+                <p>Store your personal recipes on the Internet</p>
+                <div class='.links-div'>
+                    <Link to="/login">Log In</Link>
+                    <Link to="/signup">Sign Up</Link>
+                </div>
+                <img src='/dashboard-screenshot.jpg'/>
+            </div>
     )
     }
     
