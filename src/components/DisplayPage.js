@@ -21,7 +21,8 @@ function DisplayPage(props) {
   const ingredientsArray = recipe.ingredients.split(",");
 
   useEffect(() => {
-    setRecipe(props.history.location.recipe);
+    // setRecipe(props.history.location.recipe);
+    setRecipe(props.recipe);
   }, []);
 
   const handleDelete = (e, recipe) => {
@@ -65,6 +66,7 @@ function DisplayPage(props) {
 const mapStateToProps = ({ recipeReducer }) => {
   return {
     error: recipeReducer.error,
+    recipe: recipeReducer.recipe,
   };
 };
 
