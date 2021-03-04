@@ -62,7 +62,8 @@ export const deleteRecipe = (recipe, history) => (dispatch) => {
     )
     .then((res) => {
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
-      history.push("/dashboard");
+      history.push("/edit");
+      history.replace("/dashboard");
     })
     .catch((err) => {
       dispatch({

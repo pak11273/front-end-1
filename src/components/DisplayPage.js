@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 import { deleteRecipe } from "../actions/recipeActions";
+import { loadRecipeToEdit } from "../actions/recipeActions";
 
 function DisplayPage(props) {
   const initialState = {
@@ -20,7 +21,8 @@ function DisplayPage(props) {
   const ingredientsArray = recipe.ingredients.split(",");
 
   useEffect(() => {
-    setRecipe(props.history.location.recipe);
+    // setRecipe(props.history.location.recipe);
+    setRecipe(props.recipe);
   }, []);
 
   const handleDelete = (e, recipe) => {
@@ -28,17 +30,18 @@ function DisplayPage(props) {
     props.deleteRecipe(recipe, history);
   };
 
+  const handleEditClick = (e, recipe) => {
+    e.preventDefault();
+    loadRecipeToEdit(recipe);
+    history.push("/edit");
+  };
+
   return (
     <div>
       <h1>{recipe.title}</h1>
       {/* the links on the following line should be replaced with React Links once routing is set up */}
-      <Link
-        to={{
-          pathname: "/edit",
-          recipe,
-        }}
-      >
-        Edit Recipes
+      <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
+        Edit Recipe
       </Link>
       {props.error && <div style={{ color: "red" }}>{props.error}</div>}
       <Link to="/delete" onClick={(e) => handleDelete(e, recipe)}>
@@ -63,9 +66,13 @@ function DisplayPage(props) {
 const mapStateToProps = ({ recipeReducer }) => {
   return {
     error: recipeReducer.error,
+    recipe: recipeReducer.recipe,
   };
 };
 
 export default withRouter(
-  connect(mapStateToProps, { deleteRecipe })(DisplayPage)
+  connect(mapStateToProps, {
+    deleteRecipe,
+    loadRecipeToEdit,
+  })(DisplayPage)
 );
