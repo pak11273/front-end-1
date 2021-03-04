@@ -4,7 +4,7 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 # buildwktwo
 
-You can find the deployed project at [African Market Place](https://front-end-hqyybbq4z-secreatefamilyrecipe.vercel.app/).
+You can find the deployed project at [Secret Recipes](https://front-end-hqyybbq4z-secreatefamilyrecipe.vercel.app/).
 
 ## Contributors
 
@@ -55,9 +55,7 @@ You can find the deployed project at [African Market Place](https://front-end-hq
 <hr />
 <br />
 
-#### [Back end](Request URL: https://family-recipes-cookbook.herokuapp.com/
-
-) built using: `heroku`
+#### [Back end](https://family-recipes-cookbook.herokuapp.com/) built using: `heroku`
 
 #### NodeJS
 
