@@ -3,7 +3,7 @@ import * as yup from "yup";
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom'
 import LoginForm from "./LoginForm";
 import loginSchema from "./loginSchema";
 
@@ -40,6 +40,7 @@ const initialDisabled = true;
 
 
 const Login = (props) => {
+  const history = useHistory()
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -67,9 +68,7 @@ const Login = (props) => {
     };
 
     props.loginUser(loginSubmit);
-
-    // If error length is 0 bush the dashbaord
-    props.history.push("/dashboard")
+    history.push("/dashboard")
   };
 
   useEffect(() => {
