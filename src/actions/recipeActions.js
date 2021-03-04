@@ -132,11 +132,3 @@ export const loadRecipeToEdit = (recipe, history) => {
 };
 
 
-export const deleteRecipe = (id) => dispatch => {
-  axiosWithAuth().delete(`/recipe/${id}`)
-    .then(res => {
-      console.log(res)
-      dispatch({ type: DELETE_RECIPE, payload: res.data})
-    })
-    .catch(err => console.log({err}))
-}
