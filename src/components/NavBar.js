@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 export const NavBar = () => {
   return (
@@ -8,13 +9,13 @@ export const NavBar = () => {
       </div>
       <LinksStyle>
         <div>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </div>
         <div>
-          <a href="/login">Login</a>
+          <Link to="/login">Login</Link>
         </div>
         <div>
-          <a href="/signup">Sign Up</a>
+          <Link to="/signup">Sign Up</Link>
         </div>
       </LinksStyle>
     </NavStyle>
