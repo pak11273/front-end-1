@@ -1,7 +1,37 @@
+import React,{useEffect} from 'react'
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+import { connect } from "react-redux";
+import { fetchRecipes } from "../actions/recipeActions";
 
-export const NavBar = () => {
+const NavBar = ({isLoggedIn}) => {
+
+
+  useEffect(() =>{
+    return isLoggedIn
+  },{isLoggedIn})
+  
+  if(isLoggedIn){
+    return(
+      <NavStyle>
+      <div>
+        <TitleStyle>Secret Food Recipes!</TitleStyle>
+      </div>
+      <LinksStyle>
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+        <div>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+        <div>
+          <Link to="/logout">Sign Up</Link>
+        </div>
+      </LinksStyle>
+    </NavStyle>
+    )
+  }
+
   return (
     <NavStyle>
       <div>
@@ -12,7 +42,10 @@ export const NavBar = () => {
           <Link to="/">Home</Link>
         </div>
         <div>
-          <Link to="/login">Login</Link>
+          {
+            isLoggedIn ? <Link to="/dashboard">Dashboard</Link> :  <Link to="/login">Login</Link>
+          }
+
         </div>
         <div>
           <Link to="/signup">Sign Up</Link>
@@ -21,6 +54,16 @@ export const NavBar = () => {
     </NavStyle>
   );
 };
+
+const mapStateToProps = state => {
+  console.log(state)
+  return({
+    isLoggedIn: state.userReducer.isLoggedIn
+  })
+}
+
+export default connect(mapStateToProps)(NavBar);
+
 
 const NavStyle = styled.nav`
   display: flex;

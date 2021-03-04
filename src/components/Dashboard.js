@@ -12,7 +12,7 @@ import {
 
 import DashboardSearchForm from "./DashboardSearch";
 import { connect } from "react-redux";
-import { deleteRecipe } from "../actions/recipeActions";
+
 
 const StyledDashboard = styled.div`
   background-color: ${pr => pr.theme.lightestColor};
@@ -120,12 +120,7 @@ function Dashboard({
     });
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    deleteRecipe(user.user_id)
-    console.log('deleted')
-  }
-
+  
   return (
     <StyledDashboard className="dashboard-container">
       <h1>Dashboard</h1>
@@ -147,20 +142,6 @@ function Dashboard({
                 <p>{recipe.category}</p>
                 <p>{recipe.source}</p>
 
-<<<<<<< HEAD
-                <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
-                  Edit Recipe
-                </Link>
-                <button onClick={handleDelete}>Delete Recipe</button>
-                <Link
-                  to={{
-                    pathname: "/display",
-                    recipe: recipe,
-                  }}
-                >
-                  Display Recipe
-                </Link>
-=======
                 <div class="recipe-card-links">
                   <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
                     Edit Recipe
@@ -183,7 +164,6 @@ function Dashboard({
                     Display Recipe
                   </Link> */}
                 </div>
->>>>>>> 299e14d0ff5056903551853f4ffa844bd126b4df
               </div>
             ))}
         </div>
