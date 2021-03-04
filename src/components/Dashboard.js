@@ -10,6 +10,7 @@ import {
 
 import DashboardSearchForm from "./DashboardSearch";
 import { connect } from "react-redux";
+import { deleteRecipe } from "../actions/recipeActions";
 
 const initialFormValues = {
   title: "",
@@ -22,17 +23,19 @@ const initialFormValues = {
 
 function Dashboard({
   user,
+  deleteRecipe,
   fetchRecipesById,
   searchRecipes,
   loadRecipeToEdit,
   recipes,
+  recipe,
 }) {
   const history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
     fetchRecipesById(user.user_id);
-  }, [user.user_id]);
+  }, [user.user_id, recipe]);
 
   const formSubmit = (value) => {
     // Form submited
@@ -43,6 +46,11 @@ function Dashboard({
     e.preventDefault();
     loadRecipeToEdit(recipe);
     history.push("/edit");
+  };
+
+  const handleDelete = (e, recipe) => {
+    e.preventDefault();
+    deleteRecipe(recipe, history);
   };
 
   const inputChange = (name, value) => {
@@ -76,7 +84,9 @@ function Dashboard({
                 <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
                   Edit Recipe
                 </Link>
-                <Link to="/">Delete Recipe</Link>
+                <Link to="/delete" onClick={(e) => handleDelete(e, recipe)}>
+                  Delete Recipe
+                </Link>
                 <Link
                   to={{
                     pathname: "/display",
@@ -105,11 +115,13 @@ const mapStateToProps = ({ recipeReducer, userReducer }) => {
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
+    recipe: recipeReducer.recipe,
   };
 };
 
 export default connect(mapStateToProps, {
   searchRecipes,
+  deleteRecipe,
   fetchRecipesById,
   loadRecipeToEdit,
 })(Dashboard);
