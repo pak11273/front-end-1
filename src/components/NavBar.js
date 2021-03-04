@@ -1,16 +1,28 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import styled from "styled-components";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from "react-redux";
 import { fetchRecipes } from "../actions/recipeActions";
 
 const NavBar = ({isLoggedIn}) => {
+  const [logged, setLogged] = useState(false)
 
   const token = localStorage.getItem("token")
+  const history = useHistory()
 
   useEffect(() =>{
     return token
-  },{token})
+  },[])
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+
+    console.log('lgout')
+
+    localStorage.removeItem("token")
+    history.push('/')
+
+  }
   
   if(isLoggedIn){
     return(
@@ -26,7 +38,7 @@ const NavBar = ({isLoggedIn}) => {
           <Link to="/dashboard">Dashboard</Link>
         </div>
         <div>
-          <Link to="/logout">logout</Link>
+          <button onClick={handleLogout}>logout</button>
         </div>
       </LinksStyle>
     </NavStyle>

@@ -1,4 +1,4 @@
-import * as yup from "yup";
+
 import styled from 'styled-components';
 
 import { Link, useHistory } from "react-router-dom";
@@ -81,6 +81,7 @@ function Dashboard({
   useEffect(() => {
 
     fetchRecipesById(user.user_id);
+    
   }, [user.user_id, recipe]);
 
   const formSubmit = (value) => {
@@ -106,14 +107,6 @@ function Dashboard({
   };
 
   const inputChange = (name, value) => {
-    // yup.reach(name)
-    //   .validate(value)
-    //   .then(() => {
-    //     setFormErrors({...formErrors, [name]: ''})
-    //   })
-    //   .catch(err => {
-    //     setFormErrors({...formErrors, [name]: err.errors[0]})
-    //   })
     setFormValues({
       ...formValues,
       [name]: value,
@@ -142,7 +135,7 @@ function Dashboard({
                 <p>{recipe.category}</p>
                 <p>{recipe.source}</p>
 
-                <div class="recipe-card-links">
+                <div className="recipe-card-links">
                   <Link to="/edit" onClick={(e) => handleEditClick(e, recipe)}>
                     Edit Recipe
                   </Link>
@@ -155,14 +148,6 @@ function Dashboard({
                   >
                     Display Recipe
                   </Link>
-                  {/* <Link
-                    to={{
-                      pathname: "/display",
-                      recipe: recipe,
-                    }}
-                  >
-                    Display Recipe
-                  </Link> */}
                 </div>
               </div>
             ))}

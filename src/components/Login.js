@@ -5,8 +5,9 @@ import styled from 'styled-components'
 
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
+
+import { connect } from "react-redux";
 import { loginUser } from "../actions";
 
 //styling for Login function
@@ -68,9 +69,7 @@ const Login = (props) => {
     props.loginUser(loginSubmit);
 
     // If error length is 0 bush the dashbaord
-    props.error.length === 0
-      ? props.history.push("/dashboard")
-      : console.log("false", props.error.length);
+    props.history.push("/dashboard")
   };
 
   useEffect(() => {
@@ -82,7 +81,6 @@ const Login = (props) => {
       
       <div>
       
-
       <LoginForm
         values={formValues}
         change={inputChange}
@@ -101,6 +99,7 @@ const Login = (props) => {
 };
 
 const mapStateToProps = ({ userReducer }) => {
+  console.log(userReducer)
   return {
     error: userReducer.error,
   };
