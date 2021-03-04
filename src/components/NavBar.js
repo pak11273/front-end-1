@@ -6,10 +6,11 @@ import { fetchRecipes } from "../actions/recipeActions";
 
 const NavBar = ({isLoggedIn}) => {
 
+  const token = localStorage.getItem("token")
 
   useEffect(() =>{
-    return isLoggedIn
-  },{isLoggedIn})
+    return token
+  },{token})
   
   if(isLoggedIn){
     return(
@@ -25,7 +26,7 @@ const NavBar = ({isLoggedIn}) => {
           <Link to="/dashboard">Dashboard</Link>
         </div>
         <div>
-          <Link to="/logout">Sign Up</Link>
+          <Link to="/logout">logout</Link>
         </div>
       </LinksStyle>
     </NavStyle>
@@ -42,10 +43,7 @@ const NavBar = ({isLoggedIn}) => {
           <Link to="/">Home</Link>
         </div>
         <div>
-          {
-            isLoggedIn ? <Link to="/dashboard">Dashboard</Link> :  <Link to="/login">Login</Link>
-          }
-
+          <Link to="/login">Login</Link>
         </div>
         <div>
           <Link to="/signup">Sign Up</Link>
