@@ -17,6 +17,7 @@ import {
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
+  DELETE_RECIPE
 } from "../consts";
 
 import axios from "axios";
@@ -130,3 +131,5 @@ export const loadRecipeToEdit = (recipe, history) => {
     payload: recipe,
   };
 };
+
+

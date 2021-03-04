@@ -7,11 +7,12 @@ import {
   fetchRecipesById,
   loadRecipeToEdit,
   searchRecipes,
+  deleteRecipe
 } from "../actions/recipeActions";
 
 import DashboardSearchForm from "./DashboardSearch";
 import { connect } from "react-redux";
-import { deleteRecipe } from "../actions/recipeActions";
+
 
 const StyledDashboard = styled.div`
   background-color: ${pr => pr.theme.lightestColor};
@@ -78,6 +79,7 @@ function Dashboard({
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
+
     fetchRecipesById(user.user_id);
   }, [user.user_id, recipe]);
 
@@ -118,6 +120,7 @@ function Dashboard({
     });
   };
 
+  
   return (
     <StyledDashboard className="dashboard-container">
       <h1>Dashboard</h1>
@@ -170,6 +173,7 @@ function Dashboard({
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
+  console.log(recipeReducer, userReducer)
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
@@ -182,4 +186,5 @@ export default connect(mapStateToProps, {
   deleteRecipe,
   fetchRecipesById,
   loadRecipeToEdit,
+  deleteRecipe
 })(Dashboard);

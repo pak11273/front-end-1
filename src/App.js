@@ -6,7 +6,7 @@ import EditRecipe from "./components/EditRecipe";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import LoginForm from "./components/LoginForm";
-import { NavBar } from "./components/NavBar";
+import  NavBar  from "./components/NavBar";
 import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";

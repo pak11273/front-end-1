@@ -1,6 +1,38 @@
+import React,{useEffect} from 'react'
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
+import { connect } from "react-redux";
+import { fetchRecipes } from "../actions/recipeActions";
 
-export const NavBar = () => {
+const NavBar = ({isLoggedIn}) => {
+
+  const token = localStorage.getItem("token")
+
+  useEffect(() =>{
+    return token
+  },{token})
+  
+  if(isLoggedIn){
+    return(
+      <NavStyle>
+      <div>
+        <TitleStyle>Secret Food Recipes!</TitleStyle>
+      </div>
+      <LinksStyle>
+        <div>
+          <Link to="/">Home</Link>
+        </div>
+        <div>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+        <div>
+          <Link to="/logout">logout</Link>
+        </div>
+      </LinksStyle>
+    </NavStyle>
+    )
+  }
+
   return (
     <NavStyle>
       <div>
@@ -8,18 +40,28 @@ export const NavBar = () => {
       </div>
       <LinksStyle>
         <div>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </div>
         <div>
-          <a href="/login">Login</a>
+          <Link to="/login">Login</Link>
         </div>
         <div>
-          <a href="/signup">Sign Up</a>
+          <Link to="/signup">Sign Up</Link>
         </div>
       </LinksStyle>
     </NavStyle>
   );
 };
+
+const mapStateToProps = state => {
+  console.log(state)
+  return({
+    isLoggedIn: state.userReducer.isLoggedIn
+  })
+}
+
+export default connect(mapStateToProps)(NavBar);
+
 
 const NavStyle = styled.nav`
   display: flex;
