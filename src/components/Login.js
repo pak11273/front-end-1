@@ -3,10 +3,11 @@ import * as yup from "yup";
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom'
 import LoginForm from "./LoginForm";
-import { connect } from "react-redux";
 import loginSchema from "./loginSchema";
+
+import { connect } from "react-redux";
 import { loginUser } from "../actions";
 
 //styling for Login function
@@ -39,6 +40,7 @@ const initialDisabled = true;
 
 
 const Login = (props) => {
+  const history = useHistory()
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -66,11 +68,7 @@ const Login = (props) => {
     };
 
     props.loginUser(loginSubmit);
-
-    // If error length is 0 bush the dashbaord
-    props.error.length === 0
-      ? props.history.push("/dashboard")
-      : console.log("false", props.error.length);
+    history.push("/dashboard")
   };
 
   useEffect(() => {
@@ -82,7 +80,6 @@ const Login = (props) => {
       
       <div>
       
-
       <LoginForm
         values={formValues}
         change={inputChange}
@@ -101,6 +98,7 @@ const Login = (props) => {
 };
 
 const mapStateToProps = ({ userReducer }) => {
+  console.log(userReducer)
   return {
     error: userReducer.error,
   };
