@@ -61,7 +61,8 @@ export const deleteRecipe = (recipe, history) => (dispatch) => {
     )
     .then((res) => {
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
-      history.push("/dashboard");
+      history.push("/edit");
+      history.replace("/dashboard");
     })
     .catch((err) => {
       dispatch({
@@ -124,6 +125,8 @@ export const searchRecipes = (search) => (dispatch) => {
 };
 
 export const loadRecipeToEdit = (recipe, history) => {
+  console.log("recipe: ", recipe);
+  console.log("history: ", history);
   return {
     type: LOAD_RECIPE_TO_EDIT_START,
     payload: recipe,
