@@ -5,6 +5,7 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
+  USER_LOGOUT
 } from "../consts";
 
 import axios from "axios";
@@ -42,3 +43,10 @@ export const loginUser = (payload) => (dispatch) => {
       dispatch({ type: LOGIN_USER_FAIL, payload: err.response.data.message })
     );
 };
+
+
+export const userLogout = () => dispatch => {
+  dispatch( {
+    type: USER_LOGOUT
+  })
+}

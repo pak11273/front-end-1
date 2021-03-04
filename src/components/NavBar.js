@@ -1,16 +1,21 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import styled from "styled-components";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from "react-redux";
-import { fetchRecipes } from "../actions/recipeActions";
+import { userLogout } from '../actions/index'
 
-const NavBar = ({isLoggedIn}) => {
+const NavBar = ({isLoggedIn, userLogout}) => {
+  const history = useHistory()
 
-  const token = localStorage.getItem("token")
 
-  useEffect(() =>{
-    return token
-  },{token})
+  const handleLogout = (e) => {
+    e.preventDefault()
+    
+    userLogout()
+    history.push('/')
+    console.log('lgout')
+
+  }
   
   if(isLoggedIn){
     return(
@@ -26,7 +31,7 @@ const NavBar = ({isLoggedIn}) => {
           <Link to="/dashboard">Dashboard</Link>
         </div>
         <div>
-          <Link to="/logout">logout</Link>
+          <button onClick={handleLogout}>logout</button>
         </div>
       </LinksStyle>
     </NavStyle>
@@ -60,7 +65,7 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps,{userLogout})(NavBar);
 
 
 const NavStyle = styled.nav`
