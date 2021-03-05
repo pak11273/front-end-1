@@ -9,6 +9,7 @@ import {
 } from "../consts";
 
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export const registerUser = (user) => (dispatch) => {
   dispatch({ type: REGISTER_USER_START });
