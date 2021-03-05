@@ -1,30 +1,30 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import logo from '../images/avatar.jpg'
-import './Home.css'
+import logo from '../images/thumbs/04.jpg'
+import styled from 'styled-components'
+
 
 const Home = () => {
 
     return(
-        <div>
+        <HomePage>   
 
-            {/* <!-- Header --> */}
-			<header>
-                
-                <div className="inner">
-                    <Link to="/">
-                        <img src={logo} alt="avatar" />
-                    </Link>
                     <h1>
-                        <strong>Secret Family Recipes</strong>, the perfect spot for your recipes 
+                        <strong>Secret Food Recipes</strong>, the perfect spot for your recipes 
                     </h1>
-                </div>
-
-            </header>
 
 
-        </div>
+        </HomePage>
     )
 }
     
 export default Home
+
+
+
+const HomePage = styled.div`
+
+    width: 100%,
+    min-height: 100vh;
+
+` 
