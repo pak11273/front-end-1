@@ -72,21 +72,29 @@ const NavStyle = styled.nav`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 4vh;
+  min-height: 5rem;
   background-color: ${pr => pr.theme.primaryColor};
+
+  a{
+    text-decoration: none;
+    padding: 0 5px;
+  }
 `;
 const TitleStyle = styled.p`
   color: ${pr => pr.theme.fontColor};
   text-transform: uppercase;
   letter-spacing: 1%;
-  font-size: 0.8em;
-  font-family: Georgia;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serifs;
 `;
 
 const LinksStyle = styled.ul`
   display: flex;
-  font-size: 0.8em;
-  justify-content: space-evenly;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serifs;
+
+  justify-content: space-between;
+
   ::marker {
     display: none;
   }

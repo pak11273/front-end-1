@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const StyledLoginForm = styled.form`
     color: ${pr => pr.theme.fontColor};
     font-size: ${pr => pr.theme.fontSize.medium};
-    font-weight: bold;
-    background-color: ${pr => pr.theme.tertiaryColor};
+    font-weight: 300;
+    background-color: ${pr => pr.theme.secondaryColor};
     display: ${pr => pr.theme.display};
     justify-content: ${pr => pr.theme.justifyContent};
     flex-wrap: ${pr => pr.theme.flexWrap};
@@ -14,10 +14,11 @@ const StyledLoginForm = styled.form`
 
     h2{
     font-size: ${pr => pr.theme.fontSize.large};
+    font-family: ${pr => pr.theme.fontFamily};
     white-space: ${pr => pr.theme.whiteSpace};
     color: ${pr => pr.theme.fontColor};
-    background-color: ${pr => pr.theme.secondaryColor};
     padding: ${pr => pr.theme.padding.titlePadding};
+    font-weight: ${pr => pr.theme.fontWeight};
     }
   input{
     height: ${pr => pr.theme.input.height};
@@ -59,7 +60,7 @@ const LoginForm = (props) => {
 
   return (
     <StyledLoginForm className="loginformcontainer" onSubmit={onSubmit}>
-      <h2>MEMBER LOGIN</h2>
+      <h2>Member Login</h2>
       <div>
         <p>
           <label>
