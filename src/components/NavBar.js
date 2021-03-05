@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import { Link, useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { connect } from "react-redux";
 import { userLogout } from '../actions/index'
 
@@ -25,10 +25,10 @@ const NavBar = ({isLoggedIn, userLogout}) => {
       </div>
       <LinksStyle>
         <div>
-          <Link to="/">Home</Link>
+          <NavLink exact activeClassName="active" to="/">Home</NavLink>
         </div>
         <div>
-          <Link to="/dashboard">Dashboard</Link>
+          <NavLink activeClassName="active" to="/dashboard">Dashboard</NavLink>
         </div>
         <div>
           <button onClick={handleLogout}>logout</button>
@@ -45,13 +45,13 @@ const NavBar = ({isLoggedIn, userLogout}) => {
       </div>
       <LinksStyle>
         <div>
-          <Link to="/">Home</Link>
+          <NavLink exact activeClassName="active" to="/">Home</NavLink>
         </div>
         <div>
-          <Link to="/login">Login</Link>
+          <NavLink activeClassName="active" to="/login">Login</NavLink>
         </div>
         <div>
-          <Link to="/signup">Sign Up</Link>
+          <NavLink activeClassName="active" to="/signup">Sign Up</NavLink>
         </div>
       </LinksStyle>
     </NavStyle>
@@ -74,6 +74,34 @@ const NavStyle = styled.nav`
   align-items: center;
   min-height: 5rem;
   background-color: ${pr => pr.theme.primaryColor};
+
+  a,button{
+    text-decoration: none;
+    padding: 2px 5px;
+    color: navy;
+    font-size: 12px;
+    background: none!important;
+    border: none;
+    text-transform: uppercase;
+    /*input has OS specific font-family*/
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: ease-in 500ms all;
+
+    &:hover{
+      background-color: orange!important;
+    }
+  }
+
+
+
+  .active{
+    color: #fff;
+  }
+
+
+
 `;
 const TitleStyle = styled.p`
   color: ${pr => pr.theme.fontColor};

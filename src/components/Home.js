@@ -28,6 +28,15 @@ const Home = () => {
                 </div>
             </StyledHome>
     )
-    }
+}
     
 export default Home
+
+
+
+const HomePage = styled.div`
+
+    width: 100%,
+    min-height: 100vh;
+
+` 
