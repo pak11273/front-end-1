@@ -5,11 +5,12 @@ import {
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
-  USER_LOGOUT
+  USER_LOGOUT,
 } from "../consts";
 
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+
+// import { useHistory } from "react-router-dom";
 
 export const registerUser = (user) => (dispatch) => {
   dispatch({ type: REGISTER_USER_START });
@@ -45,9 +46,8 @@ export const loginUser = (payload) => (dispatch) => {
     );
 };
 
-
-export const userLogout = () => dispatch => {
-  dispatch( {
-    type: USER_LOGOUT
-  })
-}
+export const userLogout = () => (dispatch) => {
+  dispatch({
+    type: USER_LOGOUT,
+  });
+};

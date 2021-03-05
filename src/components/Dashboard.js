@@ -1,42 +1,38 @@
-
-import styled from 'styled-components';
-
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import {
+  deleteRecipe,
   fetchRecipesById,
   loadRecipeToEdit,
   searchRecipes,
-  deleteRecipe
 } from "../actions/recipeActions";
 
 import DashboardSearchForm from "./DashboardSearch";
 import { connect } from "react-redux";
-
+import styled from "styled-components";
 
 const StyledDashboard = styled.div`
-  background-color: ${pr => pr.theme.lightestColor};
+  background-color: ${(pr) => pr.theme.lightestColor};
   padding: 5%;
 
   h1 {
     text-align: center;
-    font-size: ${pr => pr.theme.fontSize.large};
-    color: ${pr => pr.theme.fontColor};
-    font-weight: ${pr => pr.theme.fontWeight};
-
+    font-size: ${(pr) => pr.theme.fontSize.large};
+    color: ${(pr) => pr.theme.fontColor};
+    font-weight: ${(pr) => pr.theme.fontWeight};
   }
-  h2{
-    color: ${pr => pr.theme.fontColor};
-    font-weight: ${pr => pr.theme.fontWeight};
+  h2 {
+    color: ${(pr) => pr.theme.fontColor};
+    font-weight: ${(pr) => pr.theme.fontWeight};
   }
-  p{
-    color: ${pr => pr.theme.fontColor};
-    font-weight: ${pr => pr.theme.fontWeight};
+  p {
+    color: ${(pr) => pr.theme.fontColor};
+    font-weight: ${(pr) => pr.theme.fontWeight};
   }
   .dashboard-sidebar {
     left: 0;
     width: 30%;
-    background-color: ${pr => pr.theme.tertiaryColor};
+    background-color: ${(pr) => pr.theme.tertiaryColor};
     position: absolute;
     padding: 10px;
     margin-left: 10px;
@@ -53,12 +49,10 @@ const StyledDashboard = styled.div`
   }
 
   .recipe-card-container {
-    background-color: ${pr => pr.theme.secondaryColor};
-    border-radius: ${pr => pr.theme.borderRadius};
+    background-color: ${(pr) => pr.theme.secondaryColor};
+    border-radius: ${(pr) => pr.theme.borderRadius};
     padding: 20px;
     margin: 20px;
-
-
   }
 
   .recipe-card-links {
@@ -89,10 +83,8 @@ function Dashboard({
   const [formValues, setFormValues] = useState(initialFormValues);
 
   useEffect(() => {
-
     fetchRecipesById(user.user_id);
-    
-  }, [user.user_id, recipe]);
+  }, [fetchRecipesById, user.user_id, recipe]);
 
   const formSubmit = (value) => {
     // Form submited
@@ -123,7 +115,6 @@ function Dashboard({
     });
   };
 
-  
   return (
     <StyledDashboard className="dashboard-container">
       <h1>Dashboard</h1>
@@ -131,11 +122,13 @@ function Dashboard({
       <div className="dashboard-content">
         <div className="dashboard-sidebar">
           <DashboardSearchForm
-          values={formValues}
-          change={inputChange}
-          submit={formSubmit}
+            values={formValues}
+            change={inputChange}
+            submit={formSubmit}
           />
-          <div><button onClick={() => history.push("/new")}>Add New</button></div>
+          <div>
+            <button onClick={() => history.push("/new")}>Add New</button>
+          </div>
         </div>
         <div className="recipe-hub">
           {recipes &&
@@ -168,7 +161,7 @@ function Dashboard({
 }
 
 const mapStateToProps = ({ recipeReducer, userReducer }) => {
-  console.log(recipeReducer, userReducer)
+  console.log(recipeReducer, userReducer);
   return {
     user: userReducer.user,
     recipes: recipeReducer.recipes,
@@ -181,5 +174,4 @@ export default connect(mapStateToProps, {
   deleteRecipe,
   fetchRecipesById,
   loadRecipeToEdit,
-  deleteRecipe
 })(Dashboard);

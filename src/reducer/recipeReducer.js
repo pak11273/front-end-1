@@ -1,4 +1,5 @@
 import {
+  DELETE_RECIPE,
   DELETE_RECIPE_FAIL,
   DELETE_RECIPE_START,
   DELETE_RECIPE_SUCCESS,
@@ -17,10 +18,9 @@ import {
   SEARCH_RECIPES_FAIL,
   SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
-  DELETE_RECIPE
 } from "../consts/index";
 
-const token = localStorage.getItem("token");
+// const token = localStorage.getItem("token");
 
 const initialState = {
   search: "",
@@ -141,11 +141,11 @@ export const recipeReducer = (state = initialState, action) => {
         isLoading: false,
       };
     case DELETE_RECIPE:
-      console.log(state, action.payload)
-      return{
-        ...state
-      }
-      default:
+      console.log(state, action.payload);
+      return {
+        ...state,
+      };
+    default:
       return state;
   }
 };

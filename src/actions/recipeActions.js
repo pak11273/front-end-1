@@ -11,28 +11,25 @@ import {
   FETCH_RECIPES_FAIL,
   FETCH_RECIPES_START,
   FETCH_RECIPES_SUCCESS,
-  LOAD_RECIPE_TO_EDIT_FAIL,
   LOAD_RECIPE_TO_EDIT_START,
-  LOAD_RECIPE_TO_EDIT_SUCCESS,
   SEARCH_RECIPES_FAIL,
-  SEARCH_RECIPES_START,
   SEARCH_RECIPES_SUCCESS,
-  DELETE_RECIPE
 } from "../consts";
 
-import axios from "axios";
 import { axiosWithAuth } from "../auth/axiosWithAuth";
+
+// import axios from "axios";
 
 // PUT /recipe/:id
 // Update Recipe
 // Required fields:
-const exampleRecipe = {
-  title: "Recipe Title",
-  category: "category",
-  source: "Recipe Source",
-  ingredients: "All ingredients",
-  instructions: "All instructions",
-};
+// const exampleRecipe = {
+//   title: "Recipe Title",
+//   category: "category",
+//   source: "Recipe Source",
+//   ingredients: "All ingredients",
+//   instructions: "All instructions",
+// };
 
 export const editRecipe = (recipe, history) => (dispatch) => {
   dispatch({ type: EDIT_RECIPE_START });
@@ -131,5 +128,3 @@ export const loadRecipeToEdit = (recipe, history) => {
     payload: recipe,
   };
 };
-
-

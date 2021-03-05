@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
-import styled from "styled-components";
 
 import { connect } from "react-redux";
 import { editRecipe } from "../actions/recipeActions";
+import styled from "styled-components";
 
 const StyledRecipeForm = styled.div`
-  color: ${pr => pr.theme.fontColor};
-  font-size: ${pr => pr.theme.fontSize.medium};
-  background-color: ${pr => pr.theme.tertiaryColor};
-  border-radius: ${pr => pr.theme.borderRadius};
+  color: ${(pr) => pr.theme.fontColor};
+  font-size: ${(pr) => pr.theme.fontSize.medium};
+  background-color: ${(pr) => pr.theme.tertiaryColor};
+  border-radius: ${(pr) => pr.theme.borderRadius};
   width: 50%;
   margin: 10px auto;
   padding: 20px;
@@ -24,12 +24,12 @@ const StyledRecipeForm = styled.div`
     height: 5em;
     resize: none;
   }
-  button{
-    color: ${pr => pr.theme.fontColor};
-    padding: ${pr => pr.theme.padding.buttonPadding};
-    white-space: ${pr => pr.theme.whiteSpace};
-    background-color: ${pr => pr.theme.primaryColor};
-    border-radius: ${pr => pr.theme.input.borderRadius};
+  button {
+    color: ${(pr) => pr.theme.fontColor};
+    padding: ${(pr) => pr.theme.padding.buttonPadding};
+    white-space: ${(pr) => pr.theme.whiteSpace};
+    background-color: ${(pr) => pr.theme.primaryColor};
+    border-radius: ${(pr) => pr.theme.input.borderRadius};
     font-size: 1em;
   }
   p {
@@ -38,7 +38,6 @@ const StyledRecipeForm = styled.div`
   p.input-paragraph {
     text-align: right;
   }
-  
 `;
 
 const StyledTitle = styled.div`
@@ -79,7 +78,7 @@ const EditRecipe = (props) => {
       </StyledTitle>
       <StyledRecipeForm>
         <form onSubmit={onSubmit}>
-          <p class='input-paragraph'>
+          <p className="input-paragraph">
             <label>
               Title:{" "}
               <input
@@ -90,7 +89,7 @@ const EditRecipe = (props) => {
               />
             </label>
           </p>
-          <p class='input-paragraph'>
+          <p className="input-paragraph">
             <label>
               Categories (separate with commas):{" "}
               <input
@@ -101,7 +100,7 @@ const EditRecipe = (props) => {
               />
             </label>
           </p>
-          <p class='input-paragraph'>
+          <p className="input-paragraph">
             <label>
               Source:{" "}
               <input
@@ -132,7 +131,7 @@ const EditRecipe = (props) => {
               />
             </label>
           </p>
-          <p class='button-holder'>
+          <p className="button-holder">
             <button>Submit</button>
           </p>
         </form>
