@@ -24,7 +24,7 @@ const Home = () => {
                     <div class='links-div'>
                         <Link to="/login">Log In</Link> <Link to="/signup">Sign Up</Link>
                     </div>
-                    <div class='screenshot-div'><img src='/dashboard-screenshot.jpg'/></div>
+                    <div class='screenshot-div'><img src='/dashboardScreenshot.jpg'/></div>
                 </div>
             </StyledHome>
     )
