@@ -21,8 +21,18 @@ const StyledDashboard = styled.div`
   h1 {
     text-align: center;
     font-size: ${pr => pr.theme.fontSize.large};
-  }
+    color: ${pr => pr.theme.fontColor};
+    font-weight: ${pr => pr.theme.fontWeight};
 
+  }
+  h2{
+    color: ${pr => pr.theme.fontColor};
+    font-weight: ${pr => pr.theme.fontWeight};
+  }
+  p{
+    color: ${pr => pr.theme.fontColor};
+    font-weight: ${pr => pr.theme.fontWeight};
+  }
   .dashboard-sidebar {
     left: 0;
     width: 30%;

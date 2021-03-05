@@ -4,9 +4,9 @@
 export default {
   // working color directory
     fontColor: '#292728',
-    primaryColor: '#89A194',
-    secondaryColor: '#A1401D',
-    tertiaryColor: '#CC883A',
+    primaryColor: '#64817D',
+    secondaryColor: '#C8DBDE',
+    tertiaryColor: '#CF843E',
     darkestColor: '#322939',
     lightestColor: '#EFEFEB',
     errorColor: '#ED462F',
@@ -42,9 +42,11 @@ export default {
         //form input prompt font size
         medium: '1.7em',
         //title font size
-        large: '2em',
+        large: '4em',
         button: '1.5em',
     },
+    fontFamily: 'arial',
+    fontWeight: '300',
     //prevents line breaks (specifically for log in button)
     whiteSpace: 'nowrap',
 
