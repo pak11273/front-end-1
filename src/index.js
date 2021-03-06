@@ -10,8 +10,8 @@ import theme from "./theme";
 
 ReactDOM.render(
   <Provider store={store}>
-    <GlobalStyle />
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Router>
         <App />
       </Router>

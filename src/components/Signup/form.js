@@ -12,8 +12,10 @@ export function SignUpForm({ values, change, submit, disabled, errors }) {
     change(name, value);
   };
   return (
-    <StyledSignupForm className="signupformcontainer" onSubmit={onSubmit}>
-      <h2>Member Sign Up</h2>
+    <StyledSignupForm onSubmit={onSubmit}>
+      <header>
+        <h2>Member Sign Up</h2>
+      </header>
       <div>
         <label>
           Username

@@ -72,17 +72,13 @@ function ConnectedSignup({ error, registerUser }) {
   }, [formValues]);
 
   return (
-    <div className="signup">
-      <h1>.//</h1>
-
-      <SignUpForm
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors}
-      />
-    </div>
+    <SignUpForm
+      values={formValues}
+      change={inputChange}
+      submit={formSubmit}
+      disabled={disabled}
+      errors={formErrors}
+    />
   );
 }
 

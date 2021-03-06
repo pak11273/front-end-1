@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
 
+import theme from "theme.js";
+
 const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
@@ -133,6 +135,7 @@ const reset = css`
 `;
 
 const global = css`
+  ${theme}
   * {
     box-sizing: border-box;
     font-family: "Times New Roman";
@@ -148,6 +151,8 @@ const global = css`
 
   body {
     font-size: 1.6rem;
+    background: ${({ theme }) => theme.brand};
+    color: ${({ theme }) => theme.brand};
   }
 `;
 

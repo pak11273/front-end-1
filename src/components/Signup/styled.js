@@ -10,8 +10,11 @@ export const StyledSignupForm = styled.form`
   flex-wrap: ${(pr) => pr.theme.flexWrap};
   border-radius: ${(pr) => pr.theme.borderRadius};
 
+  header {
+    background: ${(pr) => pr.theme.brand};
+  }
+
   h2 {
-    font-size: ${(pr) => pr.theme.fontSize.large};
     white-space: ${(pr) => pr.theme.whiteSpace};
     color: ${(pr) => pr.theme.fontColor};
     background-color: ${(pr) => pr.theme.secondaryColor};

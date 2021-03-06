@@ -3,9 +3,8 @@
 
 const theme = {
   // working color directory
-  fontColor: "#292728",
-  primaryColor: "#64817D",
   brand: "rgb(31, 24, 21)",
+  primaryColor: "#64817D",
   secondaryColor: "#C8DBDE",
   tertiaryColor: "#CF843E",
   darkestColor: "#322939",
@@ -43,7 +42,7 @@ const theme = {
     medium: "1.7em",
     //title font size
     large: "4em",
-    button: "1.5em",
+    button: "1em",
   },
   fontFamily: "Source Sans Pro, Helvetica, sans-serif",
   fontWeight: "300",
