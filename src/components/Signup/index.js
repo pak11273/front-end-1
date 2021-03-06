@@ -2,16 +2,11 @@ import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
 
-import SignUpForm from "./SignUpForm";
+import { SignUpForm } from "./form";
 import { connect } from "react-redux";
-import { registerUser } from "../actions/index";
+import { registerUser } from "../../actions/index";
 import signupSchema from "./signupSchema";
 import { useHistory } from "react-router-dom";
-
-// import axios from 'axios'
-
-// import axios from 'axios'
-// import { useHistory } from 'react-router-dom';
 
 const initialFormValues = {
   username: "",
@@ -29,7 +24,7 @@ const initialFormErrors = {
 };
 const initialDisabled = true;
 
-function SignUp({ error, registerUser }) {
+function ConnectedSignup({ error, registerUser }) {
   const history = useHistory();
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -97,4 +92,6 @@ const mapStateToProps = ({ userReducer }) => {
   };
 };
 
-export default connect(mapStateToProps, { registerUser })(SignUp);
+export const Signup = connect(mapStateToProps, { registerUser })(
+  ConnectedSignup
+);

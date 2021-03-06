@@ -7,13 +7,17 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { StyledHome } from "./styled";
 
+//images
+const avatar = "assets/images/avatar.jpg";
+const thumb01 = "assets/images/thumbs/01.jpg";
+
 export const Home = () => {
   return (
     <StyledHome>
       <header id="header">
         <div className="inner">
           <a alt="a website image" href="#" className="image avatar">
-            <img src="assets/images/avatar.jpg" alt="" />
+            <img src={avatar} alt="" />
           </a>
           <h1>
             <strong>Secret Family Recipes</strong>, your place for <br />
@@ -55,10 +59,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/01.jpg"
+                href="../assets/images/thumbs/01.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/01.jpg" alt="" />
+                <img src={thumb01} alt="" />
               </a>
               <h3>Magna sed consequat tempus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -66,10 +70,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/02.jpg"
+                href="../assets/images/thumbs/02.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/02.jpg" alt="" />
+                <img src="../assets/images/thumbs/02.jpg" alt="" />
               </a>
               <h3>Ultricies lacinia interdum</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -77,10 +81,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/03.jpg"
+                href="../assets/images/thumbs/03.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/03.jpg" alt="" />
+                <img src="../assets/images/thumbs/03.jpg" alt="" />
               </a>
               <h3>Tortor metus commodo</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -88,10 +92,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/04.jpg"
+                href="../assets/images/thumbs/04.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/04.jpg" alt="" />
+                <img src="../assets/images/thumbs/04.jpg" alt="" />
               </a>
               <h3>Quam neque phasellus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -99,10 +103,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/05.jpg"
+                href="../assets/images/thumbs/05.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/05.jpg" alt="" />
+                <img src="../assets/images/thumbs/05.jpg" alt="" />
               </a>
               <h3>Nunc enim commodo aliquet</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -110,10 +114,10 @@ export const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="assets/images/thumbs/06.jpg"
+                href="../assets/images/thumbs/06.jpg"
                 className="image fit thumb"
               >
-                <img src="assets/images/thumbs/06.jpg" alt="" />
+                <img src="../assets/images/thumbs/06.jpg" alt="" />
               </a>
               <h3>Risus ornare lacinia</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>

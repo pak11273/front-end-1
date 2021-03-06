@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Home, Navbar } from "components";
+import { Home, Navbar, Signup } from "components";
 
 import Dashboard from "./components/Dashboard";
 import DisplayPage from "./components/DisplayPage";
@@ -10,7 +10,6 @@ import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
 import { Route } from "react-router-dom";
-import SignUp from "components/SignUp";
 
 function App() {
   return (
@@ -22,7 +21,7 @@ function App() {
         }}
       />
       <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
+      <Route path="/signup" component={Signup} />
 
       {/* Must be logged in to access these pages */}
       <PrivateRoute exact path="/edit" component={EditRecipe} />
