@@ -1,5 +1,3 @@
-import "./index.css";
-
 import App from "./App";
 import { GlobalStyle } from "./GlobalStyle";
 import { Provider } from "react-redux";

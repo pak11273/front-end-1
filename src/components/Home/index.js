@@ -1,20 +1,143 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import { StyledHome } from "./styled";
+
+require("assets/css/main.css");
+
+// import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <StyledHome>
-      <div className="home">
+      {/* <div className="home">
         <h1>Secret Family Recipe</h1>
         <p>Store your personal recipes on the Internet</p>
-        <div className="links-div">
+        <div classNameName="links-div">
           <Link to="/login">Log In</Link> <Link to="/signup">Sign Up</Link>
         </div>
-        <div className="screenshot-div">
+        <div classNameName="screenshot-div">
           <img alt="dashboard screenshot" src="/dashboardScreenshot.jpg" />
         </div>
+      </div> */}
+      <header id="header">
+        <div className="inner">
+          <a href="#" className="image avatar">
+            <img src="images/avatar.jpg" alt="" />
+          </a>
+          <h1>
+            <strong>Secret Family Recipes</strong>, your place for <br />
+            generation after generation of tradition
+            <br />
+          </h1>
+        </div>
+      </header>
+      <div id="main">
+        <section id="one">
+          <header className="major">
+            <h2>
+              Anyone can go out and buy a cookbook these days,
+              <br />
+              but you want a place to store all your
+              <br />
+              secret family recipes,
+              <br />
+              handed down from generation to generation.
+            </h2>
+          </header>
+          <p>
+            The little cards grandma wrote her recipes on in her beautiful
+            cursive are getting lost or are hard to read. You need somewhere
+            secure to keep my recipes with me forever!
+          </p>
+          <ul className="actions">
+            <li>
+              <a href="#" className="button">
+                Learn More
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="two">
+          <h2>Some of our favorite recipes</h2>
+          <div className="row">
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/01.jpg" className="image fit thumb">
+                <img src="images/thumbs/01.jpg" alt="" />
+              </a>
+              <h3>Magna sed consequat tempus</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/02.jpg" className="image fit thumb">
+                <img src="images/thumbs/02.jpg" alt="" />
+              </a>
+              <h3>Ultricies lacinia interdum</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/03.jpg" className="image fit thumb">
+                <img src="images/thumbs/03.jpg" alt="" />
+              </a>
+              <h3>Tortor metus commodo</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/04.jpg" className="image fit thumb">
+                <img src="images/thumbs/04.jpg" alt="" />
+              </a>
+              <h3>Quam neque phasellus</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/05.jpg" className="image fit thumb">
+                <img src="images/thumbs/05.jpg" alt="" />
+              </a>
+              <h3>Nunc enim commodo aliquet</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+            <article className="col-6 col-12-xsmall work-item">
+              <a href="images/thumbs/06.jpg" className="image fit thumb">
+                <img src="images/thumbs/06.jpg" alt="" />
+              </a>
+              <h3>Risus ornare lacinia</h3>
+              <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+            </article>
+          </div>
+          <ul className="actions">
+            <li>
+              <a href="#" className="button">
+                Look at this button
+              </a>
+            </li>
+          </ul>
+        </section>
       </div>
+      <footer id="footer">
+        <div className="inner">
+          <ul className="icons">
+            <li>
+              <a href="#" className="icon brands fa-twitter">
+                <span className="label">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="icon brands fa-github">
+                <span className="label">Github</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="icon brands fa-dribbble">
+                <span className="label">Dribbble</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="icon solid fa-envelope">
+                <span className="label">Email</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </StyledHome>
   );
 };
