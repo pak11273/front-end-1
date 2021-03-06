@@ -1,7 +1,18 @@
 import styled from "styled-components";
-import thumb01 from "assets/images/thumbs/01.jpg";
+import thumb04 from "assets/images/thumbs/04.jpg";
 
-export const StyledSignupForm = styled.form`
+export const StyledLogin = styled.div`
+  padding: ${(pr) => pr.theme.padding.backgroundPadding};
+`;
+
+export const StyledLink = styled.div`
+  color: ${(pr) => pr.theme.fontColor};
+  font-size: ${(pr) => pr.theme.fontSize.button};
+  white-space: ${(pr) => pr.theme.whiteSpace};
+  background-color: ${(pr) => pr.theme.lightestColor};
+`;
+
+export const StyledLoginForm = styled.form`
   display: flex;
   flex-flow: column wrap;
   background-color: ${(pr) => pr.theme.tertiaryColor};
@@ -12,14 +23,14 @@ export const StyledSignupForm = styled.form`
   header {
     display: flex;
     background-color: ${(pr) => pr.theme.secondaryColor};
-    background: url(${thumb01}) no-repeat center/cover;
+    background: url(${thumb04}) no-repeat center/cover;
     border-radius: 5px 5px 0 0;
     padding: 10%;
 
     img {
       display: inherit;
       position: absolute;
-      width: 12%;
+      width: 15%;
     }
   }
 
@@ -58,7 +69,7 @@ export const StyledSignupForm = styled.form`
       line-height: 8em;
     }
     section {
-      margin: 20px auto;
+      margin: 50px auto;
     }
   }
 `;

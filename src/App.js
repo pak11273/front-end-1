@@ -1,11 +1,10 @@
 import "./App.css";
 
-import { Home, Navbar, Signup } from "components";
+import { Home, Login, Navbar, Signup } from "components";
 
 import Dashboard from "./components/Dashboard";
 import DisplayPage from "./components/DisplayPage";
 import EditRecipe from "./components/EditRecipe";
-import Login from "./components/Login";
 import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
