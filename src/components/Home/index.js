@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/anchor-is-valid: "off" */
+
 import React from "react";
 import { StyledHome } from "./styled";
 
@@ -8,19 +10,9 @@ require("assets/css/main.css");
 const Home = () => {
   return (
     <StyledHome>
-      {/* <div className="home">
-        <h1>Secret Family Recipe</h1>
-        <p>Store your personal recipes on the Internet</p>
-        <div classNameName="links-div">
-          <Link to="/login">Log In</Link> <Link to="/signup">Sign Up</Link>
-        </div>
-        <div classNameName="screenshot-div">
-          <img alt="dashboard screenshot" src="/dashboardScreenshot.jpg" />
-        </div>
-      </div> */}
       <header id="header">
         <div className="inner">
-          <a href="#" className="image avatar">
+          <a alt="a website image" href="#" className="image avatar">
             <img src="images/avatar.jpg" alt="" />
           </a>
           <h1>
@@ -50,7 +42,7 @@ const Home = () => {
           </p>
           <ul className="actions">
             <li>
-              <a href="#" className="button">
+              <a alt="a website image" href="#" className="button">
                 Learn More
               </a>
             </li>
@@ -61,42 +53,66 @@ const Home = () => {
           <h2>Some of our favorite recipes</h2>
           <div className="row">
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/01.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/01.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/01.jpg" alt="" />
               </a>
               <h3>Magna sed consequat tempus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/02.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/02.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/02.jpg" alt="" />
               </a>
               <h3>Ultricies lacinia interdum</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/03.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/03.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/03.jpg" alt="" />
               </a>
               <h3>Tortor metus commodo</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/04.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/04.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/04.jpg" alt="" />
               </a>
               <h3>Quam neque phasellus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/05.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/05.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/05.jpg" alt="" />
               </a>
               <h3>Nunc enim commodo aliquet</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <article className="col-6 col-12-xsmall work-item">
-              <a href="images/thumbs/06.jpg" className="image fit thumb">
+              <a
+                alt="a website image"
+                href="images/thumbs/06.jpg"
+                className="image fit thumb"
+              >
                 <img src="images/thumbs/06.jpg" alt="" />
               </a>
               <h3>Risus ornare lacinia</h3>
@@ -105,7 +121,7 @@ const Home = () => {
           </div>
           <ul className="actions">
             <li>
-              <a href="#" className="button">
+              <a alt="a website image" href="#" className="button">
                 Look at this button
               </a>
             </li>
@@ -116,22 +132,38 @@ const Home = () => {
         <div className="inner">
           <ul className="icons">
             <li>
-              <a href="#" className="icon brands fa-twitter">
+              <a
+                alt="a website image"
+                href="#"
+                className="icon brands fa-twitter"
+              >
                 <span className="label">Twitter</span>
               </a>
             </li>
             <li>
-              <a href="#" className="icon brands fa-github">
+              <a
+                alt="a website image"
+                href="#"
+                className="icon brands fa-github"
+              >
                 <span className="label">Github</span>
               </a>
             </li>
             <li>
-              <a href="#" className="icon brands fa-dribbble">
+              <a
+                alt="a website image"
+                href="#"
+                className="icon brands fa-dribbble"
+              >
                 <span className="label">Dribbble</span>
               </a>
             </li>
             <li>
-              <a href="#" className="icon solid fa-envelope">
+              <a
+                alt="a website image"
+                href="#"
+                className="icon solid fa-envelope"
+              >
                 <span className="label">Email</span>
               </a>
             </li>
