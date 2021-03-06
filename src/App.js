@@ -1,11 +1,11 @@
 import "./App.css";
 
+import { Home, Navbar } from "components";
+
 import Dashboard from "./components/Dashboard";
 import DisplayPage from "./components/DisplayPage";
 import EditRecipe from "./components/EditRecipe";
-import { Home } from "components";
 import Login from "./components/Login";
-import NavBar from "./components/NavBar";
 import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
@@ -18,7 +18,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route
         render={(props) => {
-          return props.location.pathname !== "/" && <NavBar />;
+          return props.location.pathname !== "/" && <Navbar />;
         }}
       />
       <Route path="/login" component={Login} />

@@ -1,11 +1,11 @@
+import { LinksStyle, StyledNavbar, TitleStyle } from "./styled";
 import { NavLink, useHistory } from "react-router-dom";
 
 import React from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
-import { userLogout } from "../actions/index";
+import { userLogout } from "../../actions/index";
 
-const NavBar = ({ isLoggedIn, userLogout }) => {
+const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
   const history = useHistory();
 
   const handleLogout = (e) => {
@@ -17,7 +17,7 @@ const NavBar = ({ isLoggedIn, userLogout }) => {
 
   if (isLoggedIn) {
     return (
-      <NavStyle>
+      <StyledNavbar>
         <div>
           <TitleStyle>Secret Food Recipes!</TitleStyle>
         </div>
@@ -36,12 +36,12 @@ const NavBar = ({ isLoggedIn, userLogout }) => {
             <button onClick={handleLogout}>logout</button>
           </div>
         </LinksStyle>
-      </NavStyle>
+      </StyledNavbar>
     );
   }
 
   return (
-    <NavStyle>
+    <StyledNavbar>
       <div>
         <TitleStyle>Secret Food Recipes!</TitleStyle>
       </div>
@@ -62,7 +62,7 @@ const NavBar = ({ isLoggedIn, userLogout }) => {
           </NavLink>
         </div>
       </LinksStyle>
-    </NavStyle>
+    </StyledNavbar>
   );
 };
 
@@ -72,55 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { userLogout })(NavBar);
-
-const NavStyle = styled.nav`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 5rem;
-  background-color: ${(pr) => pr.theme.primaryColor};
-
-  a,
-  button {
-    text-decoration: none;
-    padding: 2px 5px;
-    color: navy;
-    font-size: 12px;
-    background: none !important;
-    border: none;
-    text-transform: uppercase;
-    /*input has OS specific font-family*/
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: ease-in 500ms all;
-
-    &:hover {
-      background-color: orange !important;
-    }
-  }
-
-  .active {
-    color: #fff;
-  }
-`;
-const TitleStyle = styled.p`
-  color: ${(pr) => pr.theme.fontColor};
-  text-transform: uppercase;
-  letter-spacing: 1%;
-  font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serifs;
-`;
-
-const LinksStyle = styled.ul`
-  display: flex;
-  font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serifs;
-
-  justify-content: space-between;
-
-  ::marker {
-    display: none;
-  }
-`;
+export const Navbar = connect(mapStateToProps, { userLogout })(ConnectedNavbar);
