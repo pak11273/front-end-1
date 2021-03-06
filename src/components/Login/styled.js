@@ -30,7 +30,7 @@ export const StyledLoginForm = styled.form`
     img {
       display: inherit;
       position: absolute;
-      width: 15%;
+      width: 10%;
     }
   }
 
