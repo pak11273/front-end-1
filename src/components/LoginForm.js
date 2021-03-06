@@ -1,49 +1,45 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-//styling for loginform 
+//styling for loginform
 const StyledLoginForm = styled.form`
-    color: ${pr => pr.theme.fontColor};
-    font-size: ${pr => pr.theme.fontSize.medium};
-    font-weight: 300;
-    background-color: ${pr => pr.theme.secondaryColor};
-    display: ${pr => pr.theme.display};
-    justify-content: ${pr => pr.theme.justifyContent};
-    flex-wrap: ${pr => pr.theme.flexWrap};
-    border-radius: ${pr => pr.theme.borderRadius};
+  color: ${(pr) => pr.theme.fontColor};
+  font-size: ${(pr) => pr.theme.fontSize.medium};
+  font-weight: 300;
+  background-color: ${(pr) => pr.theme.secondaryColor};
+  display: ${(pr) => pr.theme.display};
+  justify-content: ${(pr) => pr.theme.justifyContent};
+  flex-wrap: ${(pr) => pr.theme.flexWrap};
+  border-radius: ${(pr) => pr.theme.borderRadius};
 
-    h2{
-    font-size: ${pr => pr.theme.fontSize.large};
-    font-family: ${pr => pr.theme.fontFamily};
-    white-space: ${pr => pr.theme.whiteSpace};
-    color: ${pr => pr.theme.fontColor};
-    padding: ${pr => pr.theme.padding.titlePadding};
-    font-weight: ${pr => pr.theme.fontWeight};
-    }
-  input{
-    height: ${pr => pr.theme.input.height};
-    width: ${pr => pr.theme.input.width};
-    border-radius: ${pr => pr.theme.input.borderRadius};
-    }
-  button{
-    color: ${pr => pr.theme.fontColor};
-    padding: ${pr => pr.theme.padding.buttonPadding};
-    font-size: ${pr => pr.theme.fontSize.button};
-    margin: ${pr => pr.theme.margin.button};
-    white-space: ${pr => pr.theme.whiteSpace};
-    background-color: ${pr => pr.theme.primaryColor};
-    border-radius: ${pr => pr.theme.input.borderRadius};
+  h2 {
+    font-size: ${(pr) => pr.theme.fontSize.large};
+    font-family: ${(pr) => pr.theme.fontFamily};
+    white-space: ${(pr) => pr.theme.whiteSpace};
+    color: ${(pr) => pr.theme.fontColor};
+    padding: ${(pr) => pr.theme.padding.titlePadding};
+    font-weight: ${(pr) => pr.theme.fontWeight};
+  }
+  input {
+    height: ${(pr) => pr.theme.input.height};
+    width: ${(pr) => pr.theme.input.width};
+    border-radius: ${(pr) => pr.theme.input.borderRadius};
+  }
+  button {
+    color: ${(pr) => pr.theme.fontColor};
+    padding: ${(pr) => pr.theme.padding.buttonPadding};
+    font-size: ${(pr) => pr.theme.fontSize.button};
+    white-space: ${(pr) => pr.theme.whiteSpace};
+    background-color: ${(pr) => pr.theme.primaryColor};
+    border-radius: ${(pr) => pr.theme.input.borderRadius};
   }
 
-
-span{
-    color: ${pr => pr.theme.errorColor};
-    font-size: ${pr => pr.theme.fontSize.small};
-    white-space: ${pr => pr.theme.whiteSpace};
-}
-`
-
-
+  span {
+    color: ${(pr) => pr.theme.errorColor};
+    font-size: ${(pr) => pr.theme.fontSize.small};
+    white-space: ${(pr) => pr.theme.whiteSpace};
+  }
+`;
 
 const LoginForm = (props) => {
   const { values, submit, change, disabled, errors } = props;
@@ -85,7 +81,6 @@ const LoginForm = (props) => {
             />
           </label>
           <span className="error">{errors.password}</span>
-
         </p>
       </div>
       <button disabled={disabled}>Log In</button>

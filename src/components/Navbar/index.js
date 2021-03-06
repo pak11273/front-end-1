@@ -1,5 +1,5 @@
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { LinksStyle, StyledNavbar, TitleStyle } from "./styled";
-import { NavLink, useHistory } from "react-router-dom";
 
 import React from "react";
 import { connect } from "react-redux";
@@ -17,7 +17,11 @@ const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
 
   return (
     <StyledNavbar>
-      <TitleStyle>Secret Food Recipes!</TitleStyle>
+      <TitleStyle>
+        <Link id="home" to="/">
+          Secret Food Recipes!
+        </Link>
+      </TitleStyle>
       <LinksStyle>
         <NavLink activeClassName="active" to="/login">
           Login

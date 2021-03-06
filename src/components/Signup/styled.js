@@ -1,43 +1,64 @@
 import styled from "styled-components";
+import thumb01 from "assets/images/thumbs/01.jpg";
 
 export const StyledSignupForm = styled.form`
-  color: ${(pr) => pr.theme.fontColor};
-  font-size: ${(pr) => pr.theme.fontSize.medium};
-  font-weight: bold;
+  display: flex;
+  flex-flow: column wrap;
   background-color: ${(pr) => pr.theme.tertiaryColor};
-  display: ${(pr) => pr.theme.display};
-  justify-content: ${(pr) => pr.theme.justifyContent};
-  flex-wrap: ${(pr) => pr.theme.flexWrap};
-  border-radius: ${(pr) => pr.theme.borderRadius};
+  border-radius: 5px;
+  max-width: 800px;
+  margin: 0 auto;
 
   header {
-    background: ${(pr) => pr.theme.brand};
+    display: flex;
+    background-color: ${(pr) => pr.theme.secondaryColor};
+    background: url(${thumb01}) no-repeat center/cover;
+    border-radius: 5px 5px 0 0;
+    padding: 10%;
+
+    img {
+      display: inherit;
+      position: absolute;
+      width: 25%;
+    }
   }
 
   h2 {
-    white-space: ${(pr) => pr.theme.whiteSpace};
-    color: ${(pr) => pr.theme.fontColor};
-    background-color: ${(pr) => pr.theme.secondaryColor};
-    padding: 5%;
+    color: white;
+    text-align: center;
   }
-  input {
-    height: ${(pr) => pr.theme.input.height};
-    width: ${(pr) => pr.theme.input.width};
-    border-radius: ${(pr) => pr.theme.input.borderRadius};
-  }
-  button {
-    color: ${(pr) => pr.theme.fontColor};
-    padding: ${(pr) => pr.theme.padding.buttonPadding};
-    font-size: ${(pr) => pr.theme.fontSize.button};
-    margin: ${(pr) => pr.theme.margin.button};
-    white-space: ${(pr) => pr.theme.whiteSpace};
-    background-color: ${(pr) => pr.theme.primaryColor};
-    border-radius: ${(pr) => pr.theme.input.borderRadius};
+
+  section {
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 30px 0 50px;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+    button {
+      margin-top: 30px;
+    }
   }
 
   span {
     color: ${(pr) => pr.theme.errorColor};
     font-size: ${(pr) => pr.theme.fontSize.small};
     white-space: ${(pr) => pr.theme.whiteSpace};
+  }
+
+  @media (min-width: 580px) {
+    flex-flow: row;
+    header {
+      justify-content: center;
+      align-items: center;
+      line-height: 8em;
+    }
+    section {
+      margin: 50px auto;
+    }
   }
 `;

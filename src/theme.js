@@ -6,34 +6,23 @@ const theme = {
   brand: "rgb(31, 24, 21)",
   primaryColor: "#64817D",
   secondaryColor: "#C8DBDE",
-  tertiaryColor: "#CF843E",
+  tertiaryColor: "rgb(200 88 40)",
   darkestColor: "#322939",
-  lightestColor: "#EFEFEB",
+  lightestColor: "#ffd9c6",
   errorColor: "#ED462F",
 
   //general display format
   display: "flex",
-  justifyContent: "center",
   flexWrap: "wrap",
-  borderRadius: "10px",
 
   //general padding
   padding: {
     backgroundPadding: "10%",
     formPadding: "10%",
-    buttonPadding: "2vh 10vh",
     titlePadding: "5vh 18vh",
   },
-  //general margin
-  margin: {
-    button: "10%",
-  },
   // input stylings
-  input: {
-    height: "40px",
-    width: "160px",
-    borderRadius: "10px",
-  },
+  input: {},
   //font directory
   fontSize: {
     //error font size
@@ -42,7 +31,6 @@ const theme = {
     medium: "1.7em",
     //title font size
     large: "4em",
-    button: "1em",
   },
   fontFamily: "Source Sans Pro, Helvetica, sans-serif",
   fontWeight: "300",

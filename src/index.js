@@ -1,5 +1,5 @@
 import App from "./App";
-import { GlobalStyle } from "./GlobalStyle";
+import { GlobalStyle } from "./styles/GlobalStyle";
 import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";

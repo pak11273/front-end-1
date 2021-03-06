@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
+  #id {
+    color: ${(pr) => pr.theme.fontColor};
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1%;
+    font-size: 1.8rem;
+  }
+
   display: flex;
   justify-content: space-around;
   align-items: center;

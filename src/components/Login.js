@@ -1,9 +1,9 @@
 import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import loginSchema from "./loginSchema";
 
@@ -12,20 +12,15 @@ import { loginUser } from "../actions";
 
 //styling for Login function
 const StyledLogin = styled.div`
-  background-color: ${pr => pr.theme.lightestColor};
-  padding: ${pr => pr.theme.padding.backgroundPadding};
-
-
-`
-const StyledLink =styled.div `
-    color: ${pr => pr.theme.fontColor};
-    font-size: ${pr => pr.theme.fontSize.button};
-    margin: ${pr => pr.theme.margin.button};
-    white-space: ${pr => pr.theme.whiteSpace};
-    background-color: ${pr => pr.theme.lightestColor};
-
-  `
-  
+  background-color: ${(pr) => pr.theme.lightestColor};
+  padding: ${(pr) => pr.theme.padding.backgroundPadding};
+`;
+const StyledLink = styled.div`
+  color: ${(pr) => pr.theme.fontColor};
+  font-size: ${(pr) => pr.theme.fontSize.button};
+  white-space: ${(pr) => pr.theme.whiteSpace};
+  background-color: ${(pr) => pr.theme.lightestColor};
+`;
 
 const initialFormValues = {
   username: "",
@@ -38,10 +33,7 @@ const initialFormErrors = {
 
 const initialDisabled = true;
 
-
 const Login = (props) => {
-
-
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -68,10 +60,9 @@ const Login = (props) => {
       password: formValues.password.trim(),
     };
 
-    props.history.push("/dashboard")
+    props.history.push("/dashboard");
 
     props.loginUser(loginSubmit);
-    
   };
 
   useEffect(() => {
@@ -80,21 +71,19 @@ const Login = (props) => {
 
   return (
     <StyledLogin className="login">
-      
       <div>
-      
-      <LoginForm
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors}
-      />
+        <LoginForm
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          disabled={disabled}
+          errors={formErrors}
+        />
 
-      <StyledLink>
-        {props.error && <div style={{ color: "red" }}>{props.error}</div>}
-        <Link to="/">no log in thx</Link>
-      </StyledLink>
+        <StyledLink>
+          {props.error && <div style={{ color: "red" }}>{props.error}</div>}
+          <Link to="/">no log in thx</Link>
+        </StyledLink>
       </div>
     </StyledLogin>
   );

@@ -2,6 +2,7 @@ import * as yup from "yup";
 
 import React, { useEffect, useState } from "react";
 
+import { Container } from "components";
 import { SignUpForm } from "./form";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/index";
@@ -72,13 +73,15 @@ function ConnectedSignup({ error, registerUser }) {
   }, [formValues]);
 
   return (
-    <SignUpForm
-      values={formValues}
-      change={inputChange}
-      submit={formSubmit}
-      disabled={disabled}
-      errors={formErrors}
-    />
+    <Container padding="2em">
+      <SignUpForm
+        values={formValues}
+        change={inputChange}
+        submit={formSubmit}
+        disabled={disabled}
+        errors={formErrors}
+      />
+    </Container>
   );
 }
 
