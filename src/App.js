@@ -3,7 +3,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import DisplayPage from "./components/DisplayPage";
 import EditRecipe from "./components/EditRecipe";
-import Home from "./components/Home";
+import { Home } from "components";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import New from "./components/New";

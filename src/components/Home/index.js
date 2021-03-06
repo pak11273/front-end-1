@@ -1,13 +1,13 @@
 /* eslint jsx-a11y/anchor-is-valid: "off" */
 
+import "assets/css/main.css";
+
+import { Footer } from "components";
+import { Link } from "react-router-dom";
 import React from "react";
 import { StyledHome } from "./styled";
 
-require("assets/css/main.css");
-
-// import { Link } from "react-router-dom";
-
-const Home = () => {
+export const Home = () => {
   return (
     <StyledHome>
       <header id="header">
@@ -119,16 +119,20 @@ const Home = () => {
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
           </div>
+          <section>
+            <div>Get Started today!</div>
+          </section>
           <ul className="actions">
             <li>
-              <a alt="a website image" href="#" className="button">
-                Look at this button
-              </a>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Register</Link>
             </li>
           </ul>
         </section>
       </div>
-      <footer id="footer">
+      <Footer id="footer">
         <div className="inner">
           <ul className="icons">
             <li>
@@ -169,9 +173,7 @@ const Home = () => {
             </li>
           </ul>
         </div>
-      </footer>
+      </Footer>
     </StyledHome>
   );
 };
-
-export default Home;
