@@ -13,7 +13,7 @@ const Home = () => {
       <header id="header">
         <div className="inner">
           <a alt="a website image" href="#" className="image avatar">
-            <img src="images/avatar.jpg" alt="" />
+            <img src="assets/images/avatar.jpg" alt="" />
           </a>
           <h1>
             <strong>Secret Family Recipes</strong>, your place for <br />
@@ -55,10 +55,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/01.jpg"
+                href="assets/images/thumbs/01.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/01.jpg" alt="" />
+                <img src="assets/images/thumbs/01.jpg" alt="" />
               </a>
               <h3>Magna sed consequat tempus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -66,10 +66,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/02.jpg"
+                href="assets/images/thumbs/02.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/02.jpg" alt="" />
+                <img src="assets/images/thumbs/02.jpg" alt="" />
               </a>
               <h3>Ultricies lacinia interdum</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -77,10 +77,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/03.jpg"
+                href="assets/images/thumbs/03.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/03.jpg" alt="" />
+                <img src="assets/images/thumbs/03.jpg" alt="" />
               </a>
               <h3>Tortor metus commodo</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -88,10 +88,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/04.jpg"
+                href="assets/images/thumbs/04.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/04.jpg" alt="" />
+                <img src="assets/images/thumbs/04.jpg" alt="" />
               </a>
               <h3>Quam neque phasellus</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -99,10 +99,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/05.jpg"
+                href="assets/images/thumbs/05.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/05.jpg" alt="" />
+                <img src="assets/images/thumbs/05.jpg" alt="" />
               </a>
               <h3>Nunc enim commodo aliquet</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
@@ -110,10 +110,10 @@ const Home = () => {
             <article className="col-6 col-12-xsmall work-item">
               <a
                 alt="a website image"
-                href="images/thumbs/06.jpg"
+                href="assets/images/thumbs/06.jpg"
                 className="image fit thumb"
               >
-                <img src="images/thumbs/06.jpg" alt="" />
+                <img src="assets/images/thumbs/06.jpg" alt="" />
               </a>
               <h3>Risus ornare lacinia</h3>
               <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>

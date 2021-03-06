@@ -18,7 +18,6 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route
         render={(props) => {
-          console.log(props);
           return props.location.pathname !== "/" && <NavBar />;
         }}
       />
