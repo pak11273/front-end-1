@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { Home, Login, Navbar, Signup } from "components";
 
 import Dashboard from "./components/Dashboard";

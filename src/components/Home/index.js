@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/anchor-is-valid: "off" */
 
-import "assets/css/main.css";
+import "./index.css";
 
 import { Footer } from "components";
 import { Link } from "react-router-dom";
