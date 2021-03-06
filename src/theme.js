@@ -5,6 +5,7 @@ const theme = {
   // working color directory
   fontColor: "#292728",
   primaryColor: "#64817D",
+  brand: "rgb(31, 24, 21)",
   secondaryColor: "#C8DBDE",
   tertiaryColor: "#CF843E",
   darkestColor: "#322939",
@@ -44,7 +45,7 @@ const theme = {
     large: "4em",
     button: "1.5em",
   },
-  fontFamily: "arial",
+  fontFamily: "Source Sans Pro, Helvetica, sans-serif",
   fontWeight: "300",
   //prevents line breaks (specifically for log in button)
   whiteSpace: "nowrap",

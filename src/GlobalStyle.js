@@ -133,8 +133,11 @@ const reset = css`
 `;
 
 const global = css`
+  @import url("assets/css/fontawesome-all.min.css");
+  @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
   * {
     box-sizing: border-box;
+    font-family: "Times New Roman";
     max-width: 100%;
   }
 

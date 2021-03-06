@@ -15,52 +15,17 @@ const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
     history.push("/");
   };
 
-  if (isLoggedIn) {
-    return (
-      <StyledNavbar>
-        <div>
-          <TitleStyle>Secret Food Recipes!</TitleStyle>
-        </div>
-        <LinksStyle>
-          <div>
-            <NavLink exact activeClassName="active" to="/">
-              Home
-            </NavLink>
-          </div>
-          <div>
-            <NavLink activeClassName="active" to="/dashboard">
-              Dashboard
-            </NavLink>
-          </div>
-          <div>
-            <button onClick={handleLogout}>logout</button>
-          </div>
-        </LinksStyle>
-      </StyledNavbar>
-    );
-  }
-
   return (
     <StyledNavbar>
-      <div>
-        <TitleStyle>Secret Food Recipes!</TitleStyle>
-      </div>
+      <TitleStyle>Secret Food Recipes!</TitleStyle>
       <LinksStyle>
-        <div>
-          <NavLink exact activeClassName="active" to="/">
-            Home
-          </NavLink>
-        </div>
-        <div>
-          <NavLink activeClassName="active" to="/login">
-            Login
-          </NavLink>
-        </div>
-        <div>
-          <NavLink activeClassName="active" to="/signup">
-            Sign Up
-          </NavLink>
-        </div>
+        <NavLink activeClassName="active" to="/login">
+          Login
+        </NavLink>
+        <NavLink activeClassName="active" to="/signup">
+          Sign Up
+        </NavLink>
+        {isLoggedIn && <button onClick={handleLogout}>logout</button>}
       </LinksStyle>
     </StyledNavbar>
   );

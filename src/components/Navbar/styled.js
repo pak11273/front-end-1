@@ -5,7 +5,7 @@ export const StyledNavbar = styled.nav`
   justify-content: space-around;
   align-items: center;
   min-height: 5rem;
-  background-color: ${(pr) => pr.theme.primaryColor};
+  background-color: ${(pr) => pr.theme.brand};
 
   a,
   button {
@@ -33,16 +33,15 @@ export const StyledNavbar = styled.nav`
 `;
 export const TitleStyle = styled.p`
   color: ${(pr) => pr.theme.fontColor};
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1%;
   font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serifs;
 `;
 
 export const LinksStyle = styled.ul`
   display: flex;
   font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serifs;
 
   justify-content: space-between;
 
