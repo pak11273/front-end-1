@@ -10,7 +10,7 @@ import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
 import { Route } from "react-router-dom";
-import SignUp from "./components/SignUp";
+import SignUp from "components/SignUp";
 
 function App() {
   return (
