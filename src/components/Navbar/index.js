@@ -1,27 +1,20 @@
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { LinksStyle, StyledNavbar, TitleStyle } from "./styled";
-import React, { useEffect, useState } from "react";
 
+import React from "react";
 import { connect } from "react-redux";
 import { userLogout } from "../../actions/index";
 
-const ConnectedNavbar = ({ userLogout }) => {
+const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
   const history = useHistory();
   const token = localStorage.getItem("token");
-  const [isLoggedIn, setIsLoggedIn] = useState(token !== null);
 
   const handleLogout = (e) => {
+    console.log("hi");
     e.preventDefault();
-
     userLogout();
-    history.push("/");
+    history.push("/login");
   };
-
-  useEffect(() => {
-    if (!token) {
-      setIsLoggedIn(false);
-    }
-  }, [token]);
 
   return (
     <StyledNavbar>
@@ -30,17 +23,31 @@ const ConnectedNavbar = ({ userLogout }) => {
           Secret Food Recipes!
         </Link>
       </TitleStyle>
-      <LinksStyle>
-        <NavLink activeClassName="active" to="/login">
-          Login
-        </NavLink>
-        <NavLink activeClassName="active" to="/signup">
-          Sign Up
-        </NavLink>
-        {isLoggedIn && <button onClick={handleLogout}>logout</button>}
-      </LinksStyle>
+      {!token ? (
+        <LinksStyle>
+          <NavLink activeClassName="active" to="/login">
+            Login
+          </NavLink>
+          <NavLink activeClassName="active" to="/signup">
+            Sign Up
+          </NavLink>
+        </LinksStyle>
+      ) : (
+        <>
+          <NavLink activeClassName="active" to="/dashboard">
+            My Recipes
+          </NavLink>
+          <button onClick={handleLogout}>Log out</button>
+        </>
+      )}
     </StyledNavbar>
   );
 };
 
-export const Navbar = connect(null, { userLogout })(ConnectedNavbar);
+const mapStateToProps = ({ userReducer }) => {
+  return {
+    isLoggedIn: userReducer.isLoggedIn,
+  };
+};
+
+export const Navbar = connect(mapStateToProps, { userLogout })(ConnectedNavbar);

@@ -1,14 +1,14 @@
-import { Home, Login, Navbar, Signup } from "components";
+import { Dashboard, Home, Login, Navbar, Signup } from "components";
 
-import Dashboard from "./components/Dashboard";
 import DisplayPage from "./components/DisplayPage";
 import EditRecipe from "./components/EditRecipe";
 import New from "./components/New";
 import PrivateRoute from "./components/PrivateRoute";
 import React from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Route exact path="/" component={Home} />
@@ -29,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, {})(App);

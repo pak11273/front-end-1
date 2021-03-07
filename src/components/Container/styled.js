@@ -6,4 +6,5 @@ export const StyledContainer = styled.div`
   align-items: center;
   margin: 0 auto;
   padding: ${(pr) => pr.padding};
+  background: ${(pr) => pr.bg || "#515151"};
 `;

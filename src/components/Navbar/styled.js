@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
-  #id {
+  #home {
     color: ${(pr) => pr.theme.fontColor};
     color: white;
     text-transform: uppercase;
@@ -18,8 +18,8 @@ export const StyledNavbar = styled.nav`
   a,
   button {
     text-decoration: none;
-    padding: 2px 5px;
-    color: navy;
+    padding: 8px 12px;
+    color: rgb(200 88 40);
     font-size: 12px;
     background: none !important;
     border: none;
@@ -32,6 +32,7 @@ export const StyledNavbar = styled.nav`
 
     &:hover {
       background-color: orange !important;
+      color: ${(pr) => pr.theme.brand};
     }
   }
 

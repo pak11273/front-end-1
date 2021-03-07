@@ -200,12 +200,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  border-bottom-color: transparent;
-  color: #49bf9d !important;
-  text-decoration: none;
-}
-
 strong,
 b {
   color: #787878;
