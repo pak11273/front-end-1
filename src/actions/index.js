@@ -30,7 +30,7 @@ export const registerUser = (user) => (dispatch) => {
 // login feature
 // Returns: { "user": { "user_id: 1, "username": "UniqueUsername" }, "token": "Authentication Token" }
 
-export const loginUser = (payload) => (dispatch) => {
+export const loginUser = (payload, history) => (dispatch) => {
   dispatch({ type: LOGIN_USER_START });
 
   axios
@@ -40,6 +40,7 @@ export const loginUser = (payload) => (dispatch) => {
         type: LOGIN_USER_SUCCESS,
         payload: res.data,
       });
+      history.push("/dashboard");
     })
     .catch((err) =>
       dispatch({ type: LOGIN_USER_FAIL, payload: err.response.data.message })

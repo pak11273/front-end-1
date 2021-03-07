@@ -5,7 +5,7 @@ import React from "react";
 export const Input = ({
   color,
   label,
-  values,
+  value,
   onChange,
   type,
   name,
@@ -14,12 +14,7 @@ export const Input = ({
   return (
     <StyledContainer color={color}>
       <p>{label}</p>
-      <StyledInput
-        values={values}
-        type={type}
-        name={name}
-        onChange={onChange}
-      />
+      <StyledInput value={value} type={type} name={name} onChange={onChange} />
       <p>{errors[name]}</p>
     </StyledContainer>
   );

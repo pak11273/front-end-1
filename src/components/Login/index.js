@@ -1,18 +1,19 @@
 import * as yup from "yup";
 
+import { Button, Input } from "components";
 import React, { useEffect, useState } from "react";
-import { StyledLink, StyledLogin } from "./styled";
 
 import { Container } from "components";
-import { Link } from "react-router-dom";
-import LoginForm from "./form";
+import { StyledLoginForm } from "./styled";
 import { connect } from "react-redux";
+import decorBar from "assets/images/DecorBar.png";
 import loginSchema from "./loginSchema";
 import { loginUser } from "../../actions";
+import { useHistory } from "react-router-dom";
 
 const initialFormValues = {
-  username: "",
-  password: "",
+  username: "test12",
+  password: "test123",
 };
 const initialFormErrors = {
   username: "",
@@ -25,8 +26,14 @@ const ConnectedLogin = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const history = useHistory();
 
-  const inputChange = (name, value) => {
+  useEffect(() => {
+    setDisabled(props.isLoading);
+  }, [props.isLoading]);
+
+  const inputChange = (e) => {
+    const { name, value } = e.target;
     yup
       .reach(loginSchema, name)
       .validate(value)
@@ -42,15 +49,14 @@ const ConnectedLogin = (props) => {
     });
   };
 
-  const formSubmit = () => {
-    const loginSubmit = {
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const trimmedLogin = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
     };
 
-    props.history.push("/dashboard");
-
-    props.loginUser(loginSubmit);
+    props.loginUser(trimmedLogin, history);
   };
 
   useEffect(() => {
@@ -59,20 +65,44 @@ const ConnectedLogin = (props) => {
 
   return (
     <Container padding="2em">
-      <LoginForm
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors}
-      />
+      <StyledLoginForm onSubmit={formSubmit}>
+        <header>
+          <h2>Member Login</h2>
+          <img src={decorBar} alt="decorative bar" />
+        </header>
+        <section>
+          <Input
+            label={"username"}
+            type="text"
+            value={formValues.username}
+            onChange={inputChange}
+            name="username"
+            errors={formErrors}
+            color="#00ff1f"
+          />
+          <Input
+            label={"password"}
+            type="text"
+            value={formValues.password}
+            onChange={inputChange}
+            name="password"
+            errors={formErrors}
+            color="#00ff1f"
+          />
+          {props.error && <div style={{ color: "#00ff1f" }}>{props.error}</div>}
+          <Button sm color="white" disabled={disabled}>
+            Log In
+          </Button>
+        </section>
+      </StyledLoginForm>
     </Container>
   );
 };
 
-const mapStateToProps = ({ userReducer }) => {
+const mapStateToProps = ({ userReducer, isLoading }) => {
   return {
     error: userReducer.error,
+    isLoading: userReducer.isLoading,
   };
 };
 
