@@ -1,12 +1,14 @@
 import { Link, NavLink, useHistory } from "react-router-dom";
 import { LinksStyle, StyledNavbar, TitleStyle } from "./styled";
+import React, { useEffect, useState } from "react";
 
-import React from "react";
 import { connect } from "react-redux";
 import { userLogout } from "../../actions/index";
 
-const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
+const ConnectedNavbar = ({ userLogout }) => {
   const history = useHistory();
+  const token = localStorage.getItem("token");
+  const [isLoggedIn, setIsLoggedIn] = useState(token !== null);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -14,6 +16,12 @@ const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
     userLogout();
     history.push("/");
   };
+
+  useEffect(() => {
+    if (!token) {
+      setIsLoggedIn(false);
+    }
+  }, [token]);
 
   return (
     <StyledNavbar>
@@ -35,10 +43,4 @@ const ConnectedNavbar = ({ isLoggedIn, userLogout }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.userReducer.isLoggedIn,
-  };
-};
-
-export const Navbar = connect(mapStateToProps, { userLogout })(ConnectedNavbar);
+export const Navbar = connect(null, { userLogout })(ConnectedNavbar);

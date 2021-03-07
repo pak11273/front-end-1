@@ -122,21 +122,17 @@ export const Home = () => {
             </article>
           </div>
           <section>
-            <div>
-              Get Started and <bold>Register</bold> today!
-            </div>
+            <div>Get Started and Register today!</div>
             <div className="actions">
-              <a alt="a website image" href="#" className="button">
-                <Link to="/signup">Register</Link>
-              </a>
+              <Link to="/signup" className="button">
+                Register
+              </Link>
             </div>
-            <div>
-              or <bold>Login</bold> if you have an account!
-            </div>
+            <div>or Login if you have an account!</div>
             <div className="actions">
-              <a alt="a website image" href="#" className="button">
-                <Link to="/login">Login</Link>
-              </a>
+              <Link to="/login" className="button">
+                Login
+              </Link>
             </div>
           </section>
         </section>
