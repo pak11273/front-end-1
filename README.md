@@ -1,10 +1,19 @@
-# Basic SPA
+# Secret Family Recipes
 
-For steps on how to work with this repository [please see here](https://docs.labs.lambdaschool.com/labs-spa-starter/)
+## Preserve those favorite family recipes passed down from generation to generation!
 
-# buildwktwo
+<br />
 
-You can find the deployed project at [Secret Recipes](https://front-end-hqyybbq4z-secreatefamilyrecipe.vercel.app/).
+### You can find the deployed project at [Secret Recipes](https://secret-recipes-indol.vercel.app/).
+
+<br />
+
+<hr />
+<h2>To demo the features use</h2>
+<p>username: test12 
+<p>password: test123 
+<hr />
+<br />
 
 ## Contributors
 
@@ -19,11 +28,12 @@ You can find the deployed project at [Secret Recipes](https://front-end-hqyybbq4
 
 <td align="center"><a href="https://github.com/katehunnicutt"><img src="https://avatars.githubusercontent.com/u/77248823?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Kate Hunnicutt</b></sub></a><br /><a href="https://github.com/katehunnicut"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="#"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
 
-<td align="center"><a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQHDayFlZOzjqg/profile-displayphoto-shrink_400_400/0/1605632211774?e=1618444800&v=beta&t=uStT0oGhfj3D9hqzaDbwLT2FOvgSbWO_bPlsl80pRpU" width="100px;" alt=""/><br /><sub><b>Stephanie Enciso</b></sub></a><br /><a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
+<td align="center"><a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://avatars.githubusercontent.com/u/73484758?v=4" width="100px;" alt=""/><br /><sub><b>Stephanie Enciso</b></sub></a><br /><a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://www.linkedin.com/in/stephanieenciso/"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
 <td align="center"><a href="https://github.com"><img src="https://ca.slack-edge.com/ESZCHB482-U01BUBTV3E3-d28c8d925367-512" width="100px;" alt=""/><br /><sub><b>Mona Hassan</b></sub></a><br /><a href="https://github.com"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://linkedin.com"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
 <td align="center"><a href="https://github.com/roerark"><img src="https://avatars.githubusercontent.com/u/73914929?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Joe Park</b></sub></a><br /><a href="https://github.com/roerark"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://www.linkedin.com/in/joepark"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
-<td align="center"><a href="https://github.com/pak11273"><img src="https://media-exp1.licdn.com/dms/image/C4D03AQHEMEd21bW1CQ/profile-displayphoto-shrink_400_400/0/1606151035662?e=1618444800&v=beta&t=xcZdZpmXL-3QFjC_CkRDCjPSN5oSDNwxlM-Vz_0OY6w" width="100px;" alt=""/><br /><sub><b>Isaac Pak</b></sub></a><br /><a href="https://github.com/pak11273"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://www.linkedin.com/in/isaac-pak-78b72687/"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
+<td align="center"><a href="https://github.com/pak11273"><img src="https://avatars.githubusercontent.com/u/2309184?v=4" width="100px;" alt=""/><br /><sub><b>Isaac Pak</b></sub></a><br /><a href="https://github.com/pak11273"><img src="https://github.com/favicon.ico" width="15"></a>&nbsp;<a href="https://www.linkedin.com/in/isaac-pak-78b72687/"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"></a></td>
 </tr>
+</table>
 
 <br>
 <br>
@@ -37,8 +47,6 @@ You can find the deployed project at [Secret Recipes](https://front-end-hqyybbq4
 - run: `yarn install` to download all dependencies.
 - run: `yarn start` to start your local development server.
 
-> When using Okta for authentication, the app will need to run locally on port 3000.
-
 ### Key Features
 
 - Anyone can register/login to the site
@@ -46,14 +54,6 @@ You can find the deployed project at [Secret Recipes](https://front-end-hqyybbq4
 - You can search through recipes
 
 #### Front end deployed to `vercel`
-
-<br />
-<hr />
-<h2>To demo the features use</h2>
-<p>username: test12 
-<p>password: test123 
-<hr />
-<br />
 
 #### [Back end](https://family-recipes-cookbook.herokuapp.com/) built using: `heroku`
 
